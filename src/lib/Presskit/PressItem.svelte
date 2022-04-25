@@ -8,7 +8,7 @@
       "{item.quote}"
     </p>
     <p>
-      <a class='underline text-sm' href={item.href}>{item.outlet}</a>
+      <a class='underline text-sm' href={item.href} target='_blank'>{item.outlet}</a>
     </p>
   </div>
 </div>

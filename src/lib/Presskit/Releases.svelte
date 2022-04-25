@@ -13,13 +13,13 @@
         <img src={RecollectVinylGreen} />
         <div class='space-y-0.5'>
           <p class='b2'>
-            <a class='underline' href='#'>Listen on Spotify</a>
+            <a class='underline' href='#' target='_blank'>Listen on Spotify</a>
           </p>
           <p class='b2'>
-            <a class='underline' href='#'>Listen on Apple Music</a>
+            <a class='underline' href='#' target='_blank'>Listen on Apple Music</a>
           </p>
           <p class='b2'>
-            <a class='underline' href='#'>Listen on Bandcamp</a>
+            <a class='underline' href='#' target='_blank'>Listen on Bandcamp</a>
           </p>
         </div>
       </div>
@@ -29,13 +29,13 @@
         <img src={RecollectVinyl} />
         <div class='space-y-0.5'>
           <p class='b2'>
-            <a class='underline' href='#'>Listen on Spotify</a>
+            <a class='underline' href='https://open.spotify.com/album/1sZAn155m8BYaIaKQTnpNG?si=YpGzAPxFT9yLzoB5csGIGQ'>Listen on Spotify</a>
           </p>
           <p class='b2'>
-            <a class='underline' href='#'>Listen on Apple Music</a>
+            <a class='underline' href='https://music.apple.com/us/album/help-me-to-recollect-ep/1464730219'>Listen on Apple Music</a>
           </p>
           <p class='b2'>
-            <a class='underline' href='#'>Listen on Bandcamp</a>
+            <a class='underline' href='https://itwasagooddream.bandcamp.com/album/help-me-to-recollect'>Listen on Bandcamp</a>
           </p>
         </div>
       </div>
