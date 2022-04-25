@@ -26,7 +26,7 @@
   </div>
 
   <div class='x-container-desktop'>
-    <div class='sm:flex sm:flex-row-reverse sm:py-15'>
+    <div class='width-limit sm:flex sm:flex-row-reverse sm:py-15'>
       <Sidebar />
       <Biography />
     </div>
