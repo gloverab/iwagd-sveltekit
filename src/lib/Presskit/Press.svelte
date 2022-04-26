@@ -34,7 +34,7 @@
   <div class='width-limit'>
     <h3 class='mb-5'>Press</h3>
 
-    <div class='space-y-10 md:space-y-0 md:flex md:flex-wrap'>
+    <div class='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-10'>
       {#each pressQuotes as item}
         <PressItem {item} />
       {/each}

@@ -7,7 +7,7 @@
     <SocialLinks />
     <div class='flex space-x-5 text-sm underline items-center'>
       <a href='https://www.itwasagooddream.com'>IWAGD Website</a>
-      <a href='https://www.itwasagooddream.com'>dunk!records website</a>
+      <a href='https://www.dunkrecords.com'>dunk!records website</a>
     </div>
   </div>
 </div>

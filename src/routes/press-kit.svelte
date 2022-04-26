@@ -34,8 +34,8 @@
 
   <Releases />
 
-  <Videos />
   <Press />
+  <Videos />
   <TourDates />
 
   <Footer />
