@@ -5,6 +5,7 @@ export default defineConfig({
   theme: {
     colors: {
       black: '#000000',
+      tan: '#F7EBE4',
       grey: {
         light: '#F7F7F7',
         darkest: '#1C1C1C'

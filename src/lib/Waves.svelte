@@ -6,6 +6,8 @@
   import space from '$images/NWBUV-SpaceAbstract04.png';
   import bump from '$images/belgian-bump-displacement.jpeg';
 
+  export let show = false
+
   const initPixi = () => {
     var playground = document.getElementById('px-render');
 
@@ -94,10 +96,12 @@
 
 </script>
 
-<div class='clip relative h-2/3 transform translate-x-62.3 overflow-hidden'>
-  <img class='h-full absolute top-0 -left-30 z-1' src={space} />
-  <div class='relative z-2 perspect-lg perspect-origin-bottom transform -translate-y-20 '>
-    <div class='move perspect-origin-center' id="px-render"></div>
+<div class='relative mb-2/7 h-full w-full flex items-center justify-center'>
+  <div class:show class='clip absolute bottom-0 h-0 transition-all duration-3000 linear transform translate-x-62.3 overflow-hidden'>
+    <img class='h-full absolute top-0 -left-30 z-1' src={space} />
+    <div class='relative z-2 perspect-lg perspect-origin-bottom transform -translate-y-20 '>
+      <div class='move perspect-origin-center' id="px-render"></div>
+    </div>
   </div>
 </div>
 
@@ -107,20 +111,25 @@
   }
 
   .move {
-    -moz-animation: fadeinphoto 7s forwards;
-    -webkit-animation: fadeinphoto 7s forwards;
-    -o-animation: fadeinphoto 7s forwards;
-    animation: fadeinphoto 7s forwards;
+    opacity: 0;
+    -moz-animation: fadeinphoto 7s 2s forwards;
+    -webkit-animation: fadeinphoto 7s 2s forwards;
+    -o-animation: fadeinphoto 7s 2s forwards;
+    animation: fadeinphoto 7s 2s forwards;
+  }
+
+  .show {
+    @apply h-2/3;
   }
 
   @keyframes fadeinphoto {
     0% { transform: rotate3d(1, 0, 0, 0deg) translateZ(90px); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: rotate3d(1, 0, 0, 40deg) translateZ(-100px); }
+    40% { opacity: 1; }
+    100% { transform: rotate3d(1, 0, 0, 40deg) translateZ(-100px); opacity: 1; }
   }
   @webkit-keyframes fadeinphoto {
     0% { transform: rotate3d(1, 0, 0, 0deg) translateZ(90px); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: rotate3d(1, 0, 0, 40deg translateZ(-100px)); }
+    40% { opacity: 1; }
+    100% { transform: rotate3d(1, 0, 0, 40deg translateZ(-100px)); opacity: 1; }
   }
 </style>
