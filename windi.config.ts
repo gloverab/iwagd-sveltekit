@@ -6,7 +6,8 @@ export default defineConfig({
     colors: {
       black: '#000000',
       grey: {
-        light: '#F7F7F7'
+        light: '#F7F7F7',
+        darkest: '#1C1C1C'
       },
       white: '#FFFFFF',
       blue: {
@@ -18,7 +19,13 @@ export default defineConfig({
       }
     },
     fontFamily: {
-      'monospace': ['Arimo', 'sans-serif']
+      'arimo': ['Arimo', 'sans-serif'],
+      'display': ['Enigma'],
+      'tight': ['"Agrandir Tight"'],
+      'wbi': ['"Agrandir WideBlackItalic"']
     }
-  }
+  },
+  plugins: [
+    require('windicss/plugin/aspect-ratio')
+  ]
 })

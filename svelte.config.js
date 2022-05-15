@@ -17,6 +17,7 @@ const config = {
 				alias: {
 					$images: path.resolve('src/assets/images'),
 					$icons: path.resolve('src/assets/icons'),
+					$svgs: path.resolve('src/assets/svgs'),
 					$lib: path.resolve('src/lib'),
 					$src: path.resolve('src')
 				}

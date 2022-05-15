@@ -2,7 +2,7 @@
 	import 'virtual:windi.css';
 </script>
 
-<div class='font-monospace'>
+<div class='font-arimo'>
   <slot></slot>
 </div>
 
@@ -45,5 +45,20 @@
 
   .width-limit {
     @apply max-w-375 w-full;
+  }
+
+  @font-face{
+    font-family: 'Enigma';
+    src: url('/TANENIGMA-DISPLAY.woff') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'Agrandir Tight';
+    src: url('/Agrandir-Tight.woff') format('woff');
+  }
+
+  @font-face{
+    font-family: 'Agrandir WideBlackItalic';
+    src: url('/Agrandir-WideBlackItalic.woff') format('woff');
   }
 </style>

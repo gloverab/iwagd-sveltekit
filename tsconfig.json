@@ -17,6 +17,7 @@
 			"$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"],
 			"$images/*": ["src/assets/images/*"],
 			"$icons/*": ["src/assets/icons/*"],
+			"$svgs/*": ["src/assets/svgs/*"],
 			"$lib/*": ["src/lib/*"],
 			"$src/*": ["src/*"]
 		}
