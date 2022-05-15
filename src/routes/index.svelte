@@ -17,13 +17,15 @@
 
   let showAssets1 = false
   let showAssets2 = false
+  let showAssets3 = false
 
   onMount(() => {
     if (browser) {
       document?.body?.classList.add('overflow-hidden')
     }
-    setTimeout(() => showAssets1 = true, 300)
-    setTimeout(() => showAssets2 = true, 600)
+    setTimeout(() => showAssets1 = true, 600)
+    setTimeout(() => showAssets2 = true, 900)
+    setTimeout(() => showAssets3 = true, 2300)
   })
 
   onDestroy(() => {
@@ -57,11 +59,11 @@
       
       <div class='absolute left-0 top-0 space-y-20'>
         <div class='flex space-x-2'>
-          <p class='font-tight uppercase tracking-0.5em text-xs write-vertical-left transform rotate-180'>Melodic Instrumental • Post-Rock</p>
+          <p class='font-tight uppercase tracking-0.5em text-xs write-vertical-left transform rotate-180 duration-1000 {showAssets1 ? 'translate-y-0' : '-translate-y-8/7'}'>Melodic Instrumental • Post-Rock</p>
           <h1 class='font-display leading-19 pt-2 whitespace-nowrap'>IT WAS A<br>GOOD<br>DREAM</h1>
         </div>
 
-        <div class='flex flex-col w-25 space-y-10'>
+        <div class='flex flex-col w-25 space-y-10 duration-3000 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
           <Zebul />
           <ThisWill />
           <div class='flex items-center space-x-10'>
@@ -88,7 +90,7 @@
 
     </div>
 
-    <div class='absolute bottom-0 left-0 w-full h-1/6 flex justify-center'>
+    <div class='absolute bottom-0 left-0 w-full h-1/6 flex justify-center duration-3000 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
       <div class='w-3/4 h-full flex items-center'>
         <TourDates />
       </div>
