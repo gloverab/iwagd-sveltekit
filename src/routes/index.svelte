@@ -15,9 +15,8 @@
   import WhereDwells from "$svgs/WhereDwells.svelte";
   import Dunk from "$svgs/Dunk.svelte";
   import iwagdPress from "$images/IWAGD-Press-1.png";
-  import paperTexture from "$images/paper-texture.png";
   import TourDatesMobile from "$lib/TourDatesMobile.svelte";
-import moment from "moment";
+  import moment from "moment";
 
   let windowH: number
   let windowW: number
@@ -32,6 +31,9 @@ import moment from "moment";
     if (browser) {
       smoothscroll.polyfill();
     }
+    if (browser) {
+      document?.body?.classList.add('bg-tan')
+    }
     if (browser && window.innerWidth > 767) {
       document?.body?.classList.add('overflow-hidden')
     }
@@ -41,6 +43,9 @@ import moment from "moment";
   })
 
   onDestroy(() => {
+    if (browser) {
+      document?.body?.classList.remove('bg-tan')
+    }
     if (browser && window.innerWidth > 767) {
       document?.body?.classList.remove('overflow-hidden')
     }
@@ -76,6 +81,12 @@ import moment from "moment";
 </script>
 
 <svelte:window bind:innerHeight={windowH} bind:innerWidth={windowW} />
+
+<div class="fixed w-screen h-screen left-0 top-0 opacity-50 bg-paper-texture">
+  <div class="absolute left-0 top-0 w-full h-full bg-g1-l1 toggle-opacity-1 opacity-50"></div>
+  <div class="absolute left-0 top-0 w-full h-full bg-g1-l2 toggle-opacity-2 opacity-50"></div>
+  <div class="absolute left-0 top-0 w-full h-full bg-g1-l3 toggle-opacity-3 opacity-50"></div>
+</div>
 
 <div class='flex justify-center'>
   <div class='pb-8 pt-2 md:p-10 relative w-screen max-w-350 h-screen'>
@@ -155,12 +166,17 @@ import moment from "moment";
         {/if}
       </div>
 
-      <a class='hidden md:flex absolute top-0 right-0 uppercase text-xs tracking-widest group items-center duration-3000 {showAssets3 ? 'opacity-100' : 'opacity-0'}' target="_blank" href='/press-kit'>
-        <span>Press Kit</span>
-        <div class='duration-150 transform translate-x-0.5 group-hover:translate-x-1.5'>
-          <span class='font-display'>→</span>
-        </div>
-      </a>
+      <div class='hidden md:flex absolute top-0 right-0 duration-3000 space-x-6 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
+        <button class='uppercase text-xs tracking-widest'>
+          Contact
+        </button>
+        <a class='flex uppercase text-xs tracking-widest group items-center' target="_blank" href='/press-kit'>
+          <span>Press Kit</span>
+          <div class='duration-150 transform translate-x-0.5 group-hover:translate-x-1.5'>
+            <span class='font-display'>→</span>
+          </div>
+        </a>
+      </div>
 
       <div class='flex md:hidden absolute bottom-0 w-full px-10 items-center justify-between'>
         <div>

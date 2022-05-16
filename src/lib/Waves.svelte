@@ -1,10 +1,8 @@
 <script>
-  import WavesSvg from "./WavesSvg.svelte";
   import * as PIXI from 'pixi.js'
   import { onMount } from "svelte";
   import waves from '$svgs/waves.svg';
   import space from '$images/NWBUV-SpaceAbstract04.png';
-  import bump from '$images/belgian-bump-displacement.jpeg';
 
   export let show = false
 
