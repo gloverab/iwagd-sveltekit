@@ -275,7 +275,7 @@
     <div class:show={showC2} class='opacity-0 duration-200 absolute' style="top: {windowH * .5}px; left: {windowW * .64}px">
       <div class='absolute right-0 flex flex-col items-end transform -translate-y-full'>
         <p class='font-thin text-xs text-grey-light tracking-widest uppercase'>Label</p>
-        <a class='font-thin text-sm text-grey-light'  href="mailto:band@itwasagooddream.com">wout@dunkrecords.com</a>
+        <a class='font-thin text-sm text-grey-light'  href="mailto:wout@dunkrecords.com">wout@dunkrecords.com</a>
       </div>
     </div>
   </div>
