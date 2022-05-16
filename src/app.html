@@ -13,7 +13,42 @@
 		<link rel="preload" href="%svelte.assets%/Agrandir-WideBlackItalic.woff" as="font" type="font/woff2" crossorigin>
 		%svelte.head%
 	</head>
-	<body>
+	<body class="scrollbar-hide bg-tan">
+		<div class="fixed w-full h-full left-0 top-0 opacity-50 bg-paper-texture">
+			<div class="absolute left-0 top-0 w-full h-full bg-g1-l1 toggle-opacity-1 opacity-50"></div>
+			<div class="absolute left-0 top-0 w-full h-full bg-g1-l2 toggle-opacity-2 opacity-50"></div>
+			<div class="absolute left-0 top-0 w-full h-full bg-g1-l3 toggle-opacity-3 opacity-50"></div>
+		</div>
 		<div>%svelte.body%</div>
 	</body>
+
+	<style>
+		body::-webkit-scrollbar {
+			display: none;
+		}
+
+		body {
+			-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+		}
+
+		.toggle-opacity-1 {
+			animation: 16s toggleOpacity infinite;
+		}
+		.toggle-opacity-2 {
+			animation: 8s toggleOpacity infinite;
+		}
+		.toggle-opacity-3 {
+			animation: 10s toggleOpacity infinite;
+		}
+
+		@keyframes toggleOpacity {
+			0% { opacity: 60%; }
+			20% { opacity: 20%; }
+			40% { opacity: 70%; }
+			60% { opacity: 25%; }
+			80% { opacity: 75%; }
+			100% { opacity: 60%; }
+		}
+	</style>
 </html>

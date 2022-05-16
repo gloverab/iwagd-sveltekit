@@ -1,9 +1,9 @@
 <script lang='ts'>
-  import { fade, draw, fly } from 'svelte/transition';
+  
 </script>
 
 
-<svg viewBox="0 0 10 20">
+<svg viewBox="0 0 10 15">
   <text class='stroke-grey-darkest flicker-1' x="5" y="1" text-anchor="middle" font-size="0.8" fill="none" stroke-width=".03">EU TOUR 2022</text>
   <text class='stroke-grey-darkest flicker-2' x="5" y="2.2" text-anchor="middle" font-size="0.8" fill="none" stroke-width=".03">EU TOUR 2022</text>
   <text class='stroke-white flicker-3' x="5" y="3.4" text-anchor="middle" font-size="0.8" fill="none" stroke-width=".03">EU TOUR 2022</text>

@@ -96,7 +96,7 @@
 
 </script>
 
-<div class='relative mb-2/7 h-full w-full flex items-center justify-center'>
+<div class='relative mb-20 md:mb-70 lg:mb-2/7 h-full w-full flex items-center justify-center'>
   <div class:show class='clip absolute bottom-0 h-0 transition-all duration-3000 linear transform translate-x-62.3 overflow-hidden'>
     <img class='h-full absolute top-0 -left-30 z-1' src={space} />
     <div class='relative z-2 perspect-lg perspect-origin-bottom transform -translate-y-20 '>
@@ -119,7 +119,7 @@
   }
 
   .show {
-    @apply h-2/3;
+    @apply h-full md:h-2/3;
   }
 
   @keyframes fadeinphoto {
