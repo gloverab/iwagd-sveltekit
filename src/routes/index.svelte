@@ -235,7 +235,9 @@
   </div>
 </a>
 
-<div class='fixed w-screen h-screen top-0 left-0 bg-grey-darkest duration-300 {contactClick ? 'opacity-70' : 'opacity-0'}' />
+{#if contactHover}
+  <div class='fixed w-screen h-screen top-0 left-0 bg-grey-darkest duration-300 {contactClick ? 'opacity-70' : 'opacity-0'}' />
+{/if}
 
 <div class='hidden md:flex absolute top-10 right-10 duration-3000 space-x-6 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
   <button on:mouseover={() => contactHover = true} on:mouseout={() => contactHover = false} on:click={handleContactClick} bind:this={contactButton} class='uppercase text-xs tracking-widest {contactClick ? 'text-grey-light': 'text-grey-darkest'}'>
