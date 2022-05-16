@@ -18,6 +18,9 @@
   import TourDatesMobile from "$lib/TourDatesMobile.svelte";
   import moment from "moment";
 
+  import { draw } from 'svelte/transition';
+	import { linear } from 'svelte/easing';
+
   let windowH: number
   let windowW: number
   let photoH: number
@@ -26,6 +29,12 @@
   let showAssets3 = false
   let applyBlur = false
   let beneathText
+  let contactButton
+  let contactHover = false
+  let contactClick = false
+
+  let showC1 = false
+  let showC2 = false
 
   onMount(() => {
     if (browser) {
@@ -66,17 +75,27 @@
     }
   })
 
-  $: console.log(upcomingDate)
-  const showToday = bandsInTownResponse.find(date => moment(date.datetime).isSame(moment(), 'day'))
-  const showUpcoming = bandsInTownResponse.find(date => moment(date.datetime).isSame(moment(), 'day'))
 
   const handleMoreClick = () => {
     window.scroll({ top: windowH + photoH, left: 0, behavior: 'smooth' });
   }
 
-  const clientRect = beneathText?.getBoundingClientRect()
+  const contactClientRect = contactButton?.getBoundingClientRect()
 
-  $: console.log('bottom', clientRect)
+  const handleContactClick = () => {
+    contactClick = true
+
+    setTimeout(() => showC1 = true, 500)
+    setTimeout(() => showC2 = true, 1000)
+  }
+
+  const handleRemoveContact = () => {
+    
+
+    setTimeout(() => showC1 = false, 300)
+    setTimeout(() => showC2 = false, 100)
+    contactClick = false
+  }
 
 </script>
 
@@ -108,7 +127,7 @@
             on:mouseout={() => applyBlur = false}
             on:focus={() => applyBlur = true}
             on:blur={() => applyBlur = false}
-            style="margin-top: {beneathText?.getBoundingClientRect().top - 40}px;" class='z-1 -ml-140 relative'>
+            style="margin-top: {beneathText?.getBoundingClientRect().top - 40}px;" class='-ml-140 relative'>
             <div class:applyBlur class='absolute top-12 skew-animate h-31 w-58 bg-grey-darkest blur' />
             <div class='float-up absolute left-0 top-0 w-50'>
               <EuTour />
@@ -166,18 +185,6 @@
         {/if}
       </div>
 
-      <div class='hidden md:flex absolute top-0 right-0 duration-3000 space-x-6 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
-        <button class='uppercase text-xs tracking-widest'>
-          Contact
-        </button>
-        <a class='flex uppercase text-xs tracking-widest group items-center' target="_blank" href='/press-kit'>
-          <span>Press Kit</span>
-          <div class='duration-150 transform translate-x-0.5 group-hover:translate-x-1.5'>
-            <span class='font-display'>→</span>
-          </div>
-        </a>
-      </div>
-
       <div class='flex md:hidden absolute bottom-0 w-full px-10 items-center justify-between'>
         <div>
           <p class='font-thin text-xs tracking-widest uppercase mb-4'>Next Appearance:</p>
@@ -228,6 +235,53 @@
   </div>
 </a>
 
+<div class='fixed w-screen h-screen top-0 left-0 bg-grey-darkest duration-300 {contactClick ? 'opacity-70' : 'opacity-0'}' />
+
+<div class='hidden md:flex absolute top-10 right-10 duration-3000 space-x-6 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
+  <button on:mouseover={() => contactHover = true} on:mouseout={() => contactHover = false} on:click={handleContactClick} bind:this={contactButton} class='uppercase text-xs tracking-widest {contactClick ? 'text-grey-light': 'text-grey-darkest'}'>
+    Contact
+  </button>
+  <a class='flex uppercase text-xs tracking-widest group items-center' target="_blank" href='/press-kit'>
+    <span>Press Kit</span>
+    <div class='duration-150 transform translate-x-0.5 group-hover:translate-x-1.5'>
+      <span class='font-display'>→</span>
+    </div>
+  </a>
+</div>
+
+{#if contactClick}
+  <div on:click={handleRemoveContact} class='hidden md:block contact-line w-screen h-screen absolute left-0 top-0'>
+    <svg viewBox="0 0 {windowW / 50} {windowH / 50}" xmlns="http://www.w3.org/2000/svg">
+      {#if contactClick}
+        <!-- polyline is an open shape -->
+        <polyline in:draw="{{duration: 1200, easing: linear}}" out:draw="{{duration: 600, easing: linear}}" class='stroke-grey-light' stroke-width="0.01" fill="none"
+        points="
+        {(contactButton?.getBoundingClientRect().left + (contactButton?.getBoundingClientRect().width / 2)) / 50},{(contactButton?.getBoundingClientRect().bottom + 5) / 50}
+        {(windowW * .65) / 50},{(windowH * .45) / 50}
+        {(windowW * .4) / 50},{(windowH * .45) / 50}
+        {(windowW * .65) / 50},{(windowH * .45) / 50}
+        {(windowW * .65) / 50},{(windowH * .5) / 50}
+        {(windowW * .4) / 50},{(windowH * .5) / 50}
+        "/>
+      {/if}
+    </svg>
+
+    <div class:show={showC1} class='opacity-0 duration-200 absolute' style="top: {windowH * .45}px; left: {windowW * .64}px">
+      <div class='absolute right-0 flex flex-col items-end transform -translate-y-full'>
+        <p class='font-thin text-xs text-grey-light tracking-widest uppercase'>General/Booking</p>
+        <a class='font-thin text-sm text-grey-light'  href="mailto:band@itwasagooddream.com">chris@itwasagooddream.com</a>
+      </div>
+    </div>
+    <div class:show={showC2} class='opacity-0 duration-200 absolute' style="top: {windowH * .5}px; left: {windowW * .64}px">
+      <div class='absolute right-0 flex flex-col items-end transform -translate-y-full'>
+        <p class='font-thin text-xs text-grey-light tracking-widest uppercase'>Label</p>
+        <a class='font-thin text-sm text-grey-light'  href="mailto:band@itwasagooddream.com">wout@dunkrecords.com</a>
+      </div>
+    </div>
+  </div>
+{/if}
+
+
 
 <style>
   svg {
@@ -245,6 +299,10 @@
 
   .blur.applyBlur {
     filter: blur(.6rem);
+  }
+
+  .show {
+    @apply opacity-100
   }
 
   @keyframes skew {
