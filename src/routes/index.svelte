@@ -34,8 +34,6 @@ import moment from "moment";
     }
     if (browser && window.innerWidth > 767) {
       document?.body?.classList.add('overflow-hidden')
-    } else if (browser && window.innerWidth <= 767) {
-      document?.body?.classList.add('overflow-x-hidden')
     }
     setTimeout(() => showAssets1 = true, 900)
     setTimeout(() => showAssets2 = true, 1200)
@@ -45,8 +43,6 @@ import moment from "moment";
   onDestroy(() => {
     if (browser && window.innerWidth > 767) {
       document?.body?.classList.remove('overflow-hidden')
-    } else if (browser && window.innerWidth <= 767) {
-      document?.body?.classList.remove('overflow-x-hidden')
     }
   })
 
