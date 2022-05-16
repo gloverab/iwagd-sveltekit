@@ -235,7 +235,7 @@
   </div>
 </a>
 
-{#if contactHover}
+{#if contactHover || contactClick}
   <div class='fixed w-screen h-screen top-0 left-0 bg-grey-darkest duration-300 {contactClick ? 'opacity-70' : 'opacity-0'}' />
 {/if}
 
