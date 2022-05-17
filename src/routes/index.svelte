@@ -18,8 +18,9 @@
   import TourDatesMobile from "$lib/TourDatesMobile.svelte";
   import moment from "moment";
 
-  import { draw } from 'svelte/transition';
-	import { linear } from 'svelte/easing';
+import ContactDesktop from "$lib/ContactDesktop.svelte";
+import UpcomingDateMobile from "$lib/UpcomingDateMobile.svelte";
+import ContactMobile from "$lib/ContactMobile.svelte";
 
   let windowH: number
   let windowW: number
@@ -33,8 +34,7 @@
   let contactHover = false
   let contactClick = false
 
-  let showC1 = false
-  let showC2 = false
+  
 
   onMount(() => {
     if (browser) {
@@ -84,16 +84,9 @@
 
   const handleContactClick = () => {
     contactClick = true
-
-    setTimeout(() => showC1 = true, 500)
-    setTimeout(() => showC2 = true, 1000)
   }
 
   const handleRemoveContact = () => {
-    
-
-    setTimeout(() => showC1 = false, 300)
-    setTimeout(() => showC2 = false, 100)
     contactClick = false
   }
 
@@ -185,22 +178,10 @@
         {/if}
       </div>
 
-      <div class='flex md:hidden absolute bottom-0 w-full px-10 items-center justify-between'>
-        <div>
-          <p class='font-thin text-xs tracking-widest uppercase mb-4'>Next Appearance:</p>
-          <a class='space-y-2' href={upcomingDate.url} target='_blank'>
-            <p class='font-display text-2xl uppercase leading-3'>{moment(upcomingDate.datetime).format('DD MMMM')} →</p>
-            <p class='font-thin text-xs tracking-widest uppercase'>{upcomingDate.venue.location}</p>
-          </a>
-        </div>
-
-        <button on:click={handleMoreClick} class='py-4 pl-4 flex flex-col items-center justify-center'>
-          <p class='font-thin text-xs tracking-widest uppercase'>More</p>
-          <div class='rounded-full bg-grey-darkest flex items-center justify-center w-6 h-6'>
-            <p class='text-grey-light -pb-2 pl-0.25'>⌄</p>
-          </div>
-        </button>
-      </div>
+      <UpcomingDateMobile
+        {upcomingDate}
+        {handleMoreClick}
+      />
     </div>
 
     <div class='hidden md:flex absolute bottom-0 left-0 w-full h-1/6 justify-center duration-3000 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
@@ -209,10 +190,10 @@
         <div class='bg-yellow-green opacity-80 hover:opacity-60 duration-500 transition-opacity w-full h-full absolute top-0 left-0' />
       </div>
       <div class='absolute left-5/7 -top-40 transform'>
-        <p class='font-thin text-xs tracking-widest uppercase mb-6'>Next Appearance:</p>
-        <a class='space-y-4' href={upcomingDate.url} target='_blank'>
-          <p class='font-display text-3xl uppercase leading-3'>{moment(upcomingDate.datetime).format('DD MMMM')} →</p>
-          <p class='font-thin tracking-widest uppercase'>{upcomingDate.venue.location}</p>
+        <p class='font-thin text-xs tracking-widest uppercase mb-1'>Next Appearance:</p>
+        <a class='relative block py-4 hover:bg-grey-darkest group' href={upcomingDate.url} target='_blank'>
+          <p class='font-display text-grey-darkest text-3xl uppercase group-hover:text-grey-light'>{moment(upcomingDate.datetime).format('DD MMMM')} →</p>
+          <p class='font-thin text-grey-darkest tracking-widest uppercase group-hover:text-grey-light'>{upcomingDate.venue.location}</p>
         </a>
       </div>
       <div class='w-full lg:w-3/4 h-full flex items-center'>
@@ -229,8 +210,10 @@
   <TourDatesMobile />
 </div>
 
+<ContactMobile />
+
 <a href='/press-kit' class='relative z-1 md:hidden font-thin'>
-  <div class="w-full bg-grey-darkest flex justify-center py-2">
+  <div class="w-full bg-grey-darkest flex justify-center py-4">
     <span class='font-thin tracking-widest uppercase text-grey-light'>View Press Kit</span>
   </div>
 </a>
@@ -252,35 +235,12 @@
 </div>
 
 {#if contactClick}
-  <div on:click={handleRemoveContact} class='hidden md:block contact-line w-screen h-screen absolute left-0 top-0'>
-    <svg viewBox="0 0 {windowW / 50} {windowH / 50}" xmlns="http://www.w3.org/2000/svg">
-      {#if contactClick}
-        <!-- polyline is an open shape -->
-        <polyline in:draw="{{duration: 1200, easing: linear}}" out:draw="{{duration: 600, easing: linear}}" class='stroke-grey-light' stroke-width="0.01" fill="none"
-        points="
-        {(contactButton?.getBoundingClientRect().left + (contactButton?.getBoundingClientRect().width / 2)) / 50},{(contactButton?.getBoundingClientRect().bottom + 5) / 50}
-        {(windowW * .65) / 50},{(windowH * .45) / 50}
-        {(windowW * .4) / 50},{(windowH * .45) / 50}
-        {(windowW * .65) / 50},{(windowH * .45) / 50}
-        {(windowW * .65) / 50},{(windowH * .5) / 50}
-        {(windowW * .4) / 50},{(windowH * .5) / 50}
-        "/>
-      {/if}
-    </svg>
-
-    <div class:show={showC1} class='opacity-0 duration-200 absolute' style="top: {windowH * .45}px; left: {windowW * .64}px">
-      <div class='absolute right-0 flex flex-col items-end transform -translate-y-full'>
-        <p class='font-thin text-xs text-grey-light tracking-widest uppercase'>General/Booking</p>
-        <a class='font-thin text-sm text-grey-light'  href="mailto:band@itwasagooddream.com">chris@itwasagooddream.com</a>
-      </div>
-    </div>
-    <div class:show={showC2} class='opacity-0 duration-200 absolute' style="top: {windowH * .5}px; left: {windowW * .64}px">
-      <div class='absolute right-0 flex flex-col items-end transform -translate-y-full'>
-        <p class='font-thin text-xs text-grey-light tracking-widest uppercase'>Label</p>
-        <a class='font-thin text-sm text-grey-light'  href="mailto:wout@dunkrecords.com">wout@dunkrecords.com</a>
-      </div>
-    </div>
-  </div>
+  <ContactDesktop
+    {handleRemoveContact}
+    {windowW}
+    {windowH}
+    {contactButton}
+  />
 {/if}
 
 
@@ -301,10 +261,6 @@
 
   .blur.applyBlur {
     filter: blur(.6rem);
-  }
-
-  .show {
-    @apply opacity-100
   }
 
   @keyframes skew {
