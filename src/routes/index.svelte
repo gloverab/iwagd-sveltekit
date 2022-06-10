@@ -63,10 +63,10 @@ import ContactMobile from "$lib/ContactMobile.svelte";
   let upcomingDate: any
   
   bandsInTownResponse.forEach(date => {
-    let diff = moment(date.datetime).diff(moment(), 'days');
+    let diff = moment(date?.datetime).diff(moment(), 'days');
     if (diff > 0) {
       if (upcomingDate) {
-        if (moment(date.datetime).diff(moment(upcomingDate), 'days') < 0) {
+        if (moment(date?.datetime).diff(moment(upcomingDate), 'days') < 0) {
           upcomingDate = date;
         }
       } else {
@@ -178,10 +178,10 @@ import ContactMobile from "$lib/ContactMobile.svelte";
         {/if}
       </div>
 
-      <UpcomingDateMobile
+      <!-- <UpcomingDateMobile
         {upcomingDate}
         {handleMoreClick}
-      />
+      /> -->
     </div>
 
     <div class='hidden md:flex absolute bottom-0 left-0 w-full h-1/6 justify-center duration-3000 {showAssets3 ? 'opacity-100' : 'opacity-0'}'>
@@ -191,9 +191,9 @@ import ContactMobile from "$lib/ContactMobile.svelte";
       </div>
       <div class='absolute left-5/7 -top-40 transform'>
         <p class='font-thin text-xs tracking-widest uppercase mb-1'>Next Appearance:</p>
-        <a class='relative block py-4 hover:bg-grey-darkest group' href={upcomingDate.url} target='_blank'>
-          <p class='font-display text-grey-darkest text-3xl uppercase group-hover:text-grey-light'>{moment(upcomingDate.datetime).format('DD MMMM')} →</p>
-          <p class='font-thin text-grey-darkest tracking-widest uppercase group-hover:text-grey-light'>{upcomingDate.venue.location}</p>
+        <a class='relative block py-4 hover:bg-grey-darkest group' href={upcomingDate?.url} target='_blank'>
+          <p class='font-display text-grey-darkest text-3xl uppercase group-hover:text-grey-light'>{moment(upcomingDate?.datetime).format('DD MMMM')} →</p>
+          <p class='font-thin text-grey-darkest tracking-widest uppercase group-hover:text-grey-light'>{upcomingDate?.venue.location}</p>
         </a>
       </div>
       <div class='w-full lg:w-3/4 h-full flex items-center'>

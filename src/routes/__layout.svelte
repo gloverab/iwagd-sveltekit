@@ -7,6 +7,10 @@
 </div>
 
 <style windi:preflights:global windi:safelist:global global>
+  .text-shadow {
+    text-shadow: 0px 0px 25px #B4C5FF;
+  }
+  
   h1 {
     @apply text-6xl;
   }

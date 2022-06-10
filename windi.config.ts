@@ -11,6 +11,11 @@ export default defineConfig({
         darkest: '#1C1C1C'
       },
       white: '#FFFFFF',
+      rememory: {
+        blue: {
+          dark: '#0B0C1B'
+        }
+      },
       blue: {
         primary: '#3036D0',
         secondary: '#5357E2'
