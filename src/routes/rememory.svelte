@@ -31,7 +31,7 @@
   <div class='z-1 absolute top-0 left-0 w-full h-full flex justify-center items-center'>
     <div class='h-124 flex flex-col justify-between items-center'>
       <div>
-        <a class='inline' href='/'>
+        <a class='inline glitch-hover' href='/'>
           <h1 class='text-white inline text-base italic tracking-0.2em text-shadow'>IT WAS A GOOD DREAM</h1>
         </a>
       </div>
@@ -39,16 +39,16 @@
         <a href='/' disabled>
           <span class='nav-text opacity-50'>Pre Order</span>
         </a>
-        <a href='/'>
+        <a class='glitch-hover' href='/'>
           <span class='nav-text text-shadow'>Listen</span>
         </a>
-        <a href='/'>
+        <a class='glitch-hover' href='/'>
           <span class='nav-text text-shadow'>Tour</span>
         </a>
-        <a href='/'>
+        <a class='glitch-hover' href='/'>
           <span class='nav-text text-shadow'>Contact</span>
         </a>
-        <a href='/'>
+        <a class='glitch-hover' href='/'>
           <span class='nav-text text-shadow'>Merch</span>
         </a>
       </div>
@@ -83,7 +83,11 @@
   }
 
   .pulse-center {
-    animation: pulse 10s infinite ease-in-out;
+    animation: pulse 10s infinite linear;
+  }
+
+  .glitch-hover:hover {
+    animation: glitch-hover 0.25s linear;
   }
 
   @keyframes spin {
@@ -100,6 +104,24 @@
   @keyframes pulse-fade {
     0% { opacity: 100%; }
     50% { opacity: 0%; }
+    100% { opacity: 100%; }
+  }
+
+  @keyframes glitch-hover {
+    0% { opacity: 100%; transform: translate3d(0, 0, 0); }
+    5% { opacity: 100%; }
+    6% { opacity: 0%; }
+    20% { opacity: 0%; }
+    21% { opacity: 100%; }
+    41% { opacity: 100%; }
+    42% { opacity: 0%; }
+    62% { opacity: 0%; }
+    63% { opacity: 100%; }
+    75% { transform: translate3d(0, 0, 0); }
+    76% { transform: translate3d(18px, -25px, 0); }
+    86% { transform: translate3d(20px, -30px, 0); }
+    87% { transform: translate3d(0, 0, 0); }
+
     100% { opacity: 100%; }
   }
 </style>
