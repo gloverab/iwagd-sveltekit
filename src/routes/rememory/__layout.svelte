@@ -1,4 +1,5 @@
 <script lang='ts'>
+
   import wavesBg1 from '$images/waves-square-bg-1.png'
   import wavesBg2 from '$images/waves-square-bg-2.png'
   import glowLight1 from '$images/glow-light-1.png'
@@ -6,46 +7,54 @@
   import blueInnerDots from '$images/blue-inner-dots.png'
   import orangeCenter from '$images/orange-center.png'
   import yellowSparks from '$images/yellow-sparks.png'
+  import { page } from '$app/stores';
+import ListenPage from '$lib/ListenPage.svelte';
+
+  $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen')
 </script>
 
 <div class='w-screen h-screen bg-rememory-blue-dark flex items-center justify-center overflow-hidden'>
   <div class='w-480 h-480 flex-shrink-0 flex relative'>
-    <img class='max-w-none absolute top-0 left-0 spin-waves-2' src={wavesBg2} />
-    <img class='max-w-none absolute top-0 left-0 spin-waves-1' src={wavesBg1} />
-    <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
-      <img class='max-w-none pulse-fade-1' src={glowLight1} />
+    <img alt='background waves 2' class='max-w-none absolute top-0 left-0 spin-waves-2' src={wavesBg2} />
+    <img alt='background waves 1' class='max-w-none absolute top-0 left-0 spin-waves-1' src={wavesBg1} />
+    <div class:fade-out={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center delay-400'>
+      <img alt='glow light 1' class='max-w-none pulse-fade-1' src={glowLight1} />
+    </div>
+    <div class:fade-out={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center delay-400'>
+      <img alt='glow light 2' class='max-w-none pulse-fade-2' src={glowLight2} />
+    </div>
+    <div class:shrink={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform scale-100 duration-350 delay-400'>
+      <img alt='blue inner dots' class='max-w-none spin-blue-dots' src={blueInnerDots} />
+    </div>
+    <div class:shrink={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform scale-100 duration-350 delay-400'>
+      <img alt='orange heartbeat center' class='max-w-none pulse-center' src={orangeCenter} />
     </div>
     <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
-      <img class='max-w-none pulse-fade-2' src={glowLight2} />
-    </div>
-    <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
-      <img class='max-w-none spin-blue-dots' src={blueInnerDots} />
-    </div>
-    <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
-      <img class='max-w-none pulse-center' src={orangeCenter} />
-    </div>
-    <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
-      <img class='max-w-none spin-yellow-sparks' src={yellowSparks} />
+      <img class:fade-out={hideArtwork} alt='yellow sparks' class='max-w-none spin-yellow-sparks duration-150 opacity-100 delay-400' src={yellowSparks} />
     </div>
   </div>
   <div class='z-1 absolute top-0 left-0 w-full h-full flex justify-center items-center'>
-    <div class='h-124 flex flex-col justify-between items-center'>
-      <div>
-        <a class='inline glitch-hover' href='/'>
+    <div class='h-139 relative flex flex-col justify-between items-center'>
+      <div class='z-2 relative'>
+        <a class='inline glitch-hover' href='/rememory'>
           <h1 class='text-white inline text-base italic tracking-0.2em text-shadow'>IT WAS A GOOD DREAM</h1>
         </a>
       </div>
-      <div class='flex flex-row space-x-10'>
+      <ListenPage
+        show={$page.url.pathname.includes('listen')}
+      />
+      <slot></slot>
+      <div class='z-2 relative flex flex-row space-x-10'>
         <a href='/' disabled>
           <span class='nav-text opacity-50'>Pre Order</span>
         </a>
-        <a class='glitch-hover' href='/'>
+        <a sveltekit:prefetch class='glitch-hover' href='/rememory/listen'>
           <span class='nav-text text-shadow'>Listen</span>
         </a>
         <a class='glitch-hover' href='/'>
           <span class='nav-text text-shadow'>Tour</span>
         </a>
-        <a class='glitch-hover' href='/'>
+        <a class='glitch-hover' href='/rememory/contact'>
           <span class='nav-text text-shadow'>Contact</span>
         </a>
         <a class='glitch-hover' href='/'>
@@ -57,6 +66,13 @@
 </div>
 
 <style>
+  .shrink {
+    @apply scale-0 delay-0;
+  }
+  .fade-out {
+    @apply opacity-0 duration-450 delay-0;
+  }
+
   .nav-text {
     @apply text-white inline text-base italic tracking-0.2em uppercase;
   }
