@@ -77,7 +77,7 @@
     class:backgroundShift1
     class:backgroundShift2
     class='background w-screen h-screen flex items-center justify-center border-10'>
-    <!-- <span bind:clientWidth={spanW} class='text-orange-primary absolute left-full'>▓</span> -->
+    <span bind:clientWidth={spanW} class='text-orange-primary absolute left-full'>▓</span>
     
     {#each arr as el}
       <!-- <span class='block-el text-rememory-blue-dark'>▓</span> -->
