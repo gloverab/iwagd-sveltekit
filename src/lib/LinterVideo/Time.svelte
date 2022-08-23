@@ -3,6 +3,7 @@
 
   export let duration: number
   export let showEnd: boolean
+  export let progress: number
 
   let elementW = 0
   let windowW = 0
@@ -24,7 +25,7 @@
 	$: hundrethsEnd = endTime?.getMilliseconds();
 
   export const stopTime = () => {
-    clearInterval(interval)
+    // clearInterval(interval)
     videoStart = true
 
     // get the current date & time (as milliseconds since Epoch)
@@ -122,6 +123,12 @@
         </span>
       </div>
     </div>
+  </div>
+{/if}
+
+{#if videoStart}
+  <div class='w-full absolute top-0 left-0 pt-8 px-1'>
+    <div style="transform: scale3d({progress}, 1,1); transform-origin: left;" class='h-0.25 w-full bg-rememory-blue-dark' />
   </div>
 {/if}
 

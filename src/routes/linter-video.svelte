@@ -12,6 +12,7 @@
   let paused = true
   let timestamp = 0
   let duration: number
+
   let spanW= 0
   let screenW = 0
 
@@ -23,6 +24,8 @@
   let backgroundShift2 = false
 
   let showFlashGroup1 = false
+
+  $: progress = timestamp / duration
 
   const removeFlashGroup1 = () => {
     showFlashGroup1 = false
@@ -74,7 +77,7 @@
     class:backgroundShift1
     class:backgroundShift2
     class='background w-screen h-screen flex items-center justify-center border-10'>
-    <span bind:clientWidth={spanW} class='text-orange-primary absolute left-full'>▓</span>
+    <!-- <span bind:clientWidth={spanW} class='text-orange-primary absolute left-full'>▓</span> -->
     
     {#each arr as el}
       <!-- <span class='block-el text-rememory-blue-dark'>▓</span> -->
@@ -89,6 +92,7 @@
         bind:stopTime={stopTime}
         {duration}
         {showEnd}
+        {progress}
       />
       {#if showWelcome}
         <span out:fade={{ duration: 1500 }} class='text-sm tracking-widest text-sm uppercase text-center'>Type "play" below to begin</span>
