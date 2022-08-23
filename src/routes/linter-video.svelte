@@ -2,12 +2,21 @@
   import { onMount } from "svelte";
   import linter from "$src/assets/audio/linter-unmastered.wav"
   import ThreePanel from "$lib/LinterVideo/ThreePanel.svelte";
+  import Time from "$lib/LinterVideo/Time.svelte";
+  import { fade } from 'svelte/transition';
 
-  let time = 0
+  let textValue = ''
+  let stopTime: () => void
+  let showEnd = false
+
+  let paused = true
+  let timestamp = 0
+  let duration: number
   let spanW= 0
   let screenW = 0
 
-  let showTitle1 = true
+  let showWelcome = true
+  let showTitle1 = false
   let showTitle2 = false
 
   let backgroundShift1 = false
@@ -19,28 +28,40 @@
     showFlashGroup1 = false
   }
 
+  const startVideo = () => {
+    paused = false
+    showWelcome = false
+    stopTime()
+  }
+
+  $: if (textValue.toLowerCase() === 'play') {
+    startVideo()
+  }
+
   $: numEl = Math.ceil(screenW / spanW)
   $: arr = new Array(numEl || 0)
 
-  $: if (time > 1.42 && time < 1.44) {
+  $: if (timestamp > 1.42 && timestamp < 1.44) {
+    showTitle1 = true
     backgroundShift1 = true
     backgroundShift2 = false
     showFlashGroup1 = true
-  } else if (time > 7.10 && time < 7.12) {
+  } else if (timestamp > 7.10 && timestamp < 7.12) {
     backgroundShift1 = false
     backgroundShift2 = true
     showFlashGroup1 = true
-  } else if (time > 12.78 && time < 12.80) {
+    showEnd = true
+  } else if (timestamp > 12.78 && timestamp < 12.80) {
     showTitle1 = false
     showTitle2 = true
     backgroundShift2 = false
     backgroundShift1 = true
     showFlashGroup1 = true
-  } else if (time > 18.46 && time < 18.48) {
+  } else if (timestamp > 18.46 && timestamp < 18.48) {
     backgroundShift2 = true
     backgroundShift1 = false
     showFlashGroup1 = true
-  } else if (time > 24.14 && time < 24.16) {
+  } else if (timestamp > 24.14 && timestamp < 24.16) {
     showFlashGroup1 = true
     showTitle2 = false
   }
@@ -62,6 +83,18 @@
     {#if showFlashGroup1}
       <ThreePanel unmount={removeFlashGroup1} />
     {/if}
+
+    <div class='flex flex-col'>
+      <Time
+        bind:stopTime={stopTime}
+        {duration}
+        {showEnd}
+      />
+      {#if showWelcome}
+        <span out:fade={{ duration: 1500 }} class='text-sm tracking-widest text-sm uppercase text-center'>Type "play" below to begin</span>
+        <input out:fade={{ duration: 1500 }} bind:value={textValue} class='p-2 border-b-1 outline-none uppercase text-center text-lg tracking-widest' type='text' />
+      {/if}
+    </div>
     {#if showTitle1}
       <h2 class='text-rememory-blue-dark font-arimo font-thin relative uppercase tracking-widest'>It Was A Good Dream</h2>
     {/if}
@@ -70,7 +103,7 @@
     {/if}
   </div>
 </div>
-<audio controls bind:currentTime={time} src={linter} />
+<audio class='hidden' controls bind:currentTime={timestamp} bind:duration={duration} src={linter} bind:paused={paused} />
 
 <style>
   .backgroundShift1 {
