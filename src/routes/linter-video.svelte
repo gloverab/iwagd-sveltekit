@@ -1,9 +1,15 @@
 <script lang='ts'>
   import { onMount } from "svelte";
+  import { fade } from 'svelte/transition';
   import linter from "$src/assets/audio/linter-unmastered.wav"
   import ThreePanel from "$lib/LinterVideo/ThreePanel.svelte";
   import Time from "$lib/LinterVideo/Time.svelte";
-  import { fade } from 'svelte/transition';
+  import Webcam from "$lib/LinterVideo/Webcam.svelte";
+import Fractal from "$lib/LinterVideo/Fractal.svelte";
+
+  /* FOR INSPIRATION CHECK OUT *****
+    https://codepen.io/terrytongcc/pen/NNoMJV?editors=1010
+  *****************/
 
   let textValue = ''
   let stopTime: () => void
@@ -19,9 +25,11 @@
   let showWelcome = true
   let showTitle1 = false
   let showTitle2 = false
+  let showWebcam = false
 
   let backgroundShift1 = false
   let backgroundShift2 = false
+  let backgroundShift3 = false
 
   let showFlashGroup1 = false
 
@@ -65,8 +73,10 @@
     backgroundShift1 = false
     showFlashGroup1 = true
   } else if (timestamp > 24.14 && timestamp < 24.16) {
+    backgroundShift3 = true
     showFlashGroup1 = true
     showTitle2 = false
+    showWebcam = true
   }
   const barLength = 1420
   const barLength4 = 5680
@@ -76,6 +86,7 @@
   <div bind:clientWidth={screenW}
     class:backgroundShift1
     class:backgroundShift2
+    class:backgroundShift3
     class='background w-screen h-screen flex items-center justify-center border-10'>
     <span bind:clientWidth={spanW} class='text-orange-primary absolute left-full'>▓</span>
     
@@ -87,6 +98,13 @@
       <ThreePanel unmount={removeFlashGroup1} />
     {/if}
 
+    <Webcam show={showWebcam} />
+    <!-- {#if !paused}
+      <Fractal />
+    {/if} -->
+
+    <!-- <video controls width="1080" height="1920" src="https://www.dl.dropboxusercontent.com/s/ec6wtmn0t91anya/mandelbrot-slice.m4v" /> -->
+
     <div class='flex flex-col'>
       <Time
         bind:stopTime={stopTime}
@@ -96,7 +114,7 @@
       />
       {#if showWelcome}
         <span out:fade={{ duration: 1500 }} class='text-sm tracking-widest text-sm uppercase text-center'>Type "play" below to begin</span>
-        <input out:fade={{ duration: 1500 }} bind:value={textValue} class='p-2 border-b-1 outline-none uppercase text-center text-lg tracking-widest' type='text' />
+        <input autofocus out:fade={{ duration: 1500 }} bind:value={textValue} class='p-2 border-b-1 outline-none uppercase text-center text-lg tracking-widest' type='text' />
       {/if}
     </div>
     {#if showTitle1}
@@ -116,6 +134,10 @@
 
   .backgroundShift2 {
     animation: background-white-to-blue 5680ms forwards ease-in;
+  }
+  
+  .backgroundShift3 {
+    animation: background-white-to-blue 5680ms reverse ease-in;
   }
 
   @keyframes move-up {

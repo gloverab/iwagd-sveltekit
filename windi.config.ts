@@ -40,6 +40,7 @@ export default defineConfig({
     },
     fontFamily: {
       'arimo': ['Arimo', 'sans-serif'],
+      'courier': ['Courier'],
       'display': ['Enigma'],
       'tight': ['"Agrandir Tight"'],
       'wbi': ['"Agrandir WideBlackItalic"']
