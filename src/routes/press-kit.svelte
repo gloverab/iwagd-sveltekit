@@ -2,7 +2,7 @@
   const url = "https://secret-coast-09187.herokuapp.com/"
   // const url = "http://localhost:3001/"
   const getPerformer = new Promise(async (res, rej) => {
-    const resp = await fetch(url + 'performers/2')
+    const resp = await fetch(url + 'performers/3')
     if (resp.status === 200) {
       const data = await resp.json()
       res(data)
