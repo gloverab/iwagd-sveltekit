@@ -71,14 +71,16 @@
         </a>
       </p>
     </div>
-    <div class='space-y-2.5'>
-      <h4>label contact</h4>
-      <p class='b2'>
-        <a class='underline' href="mailto:{performer.labels[0].email_1}">
-          <p class='b2'>{performer.labels[0].email_1}</p>
-        </a>
-      </p>
-    </div>
+    {#if performer.labels[0]}
+      <div class='space-y-2.5'>
+        <h4>label contact</h4>
+        <p class='b2'>
+          <a class='underline' href="mailto:{performer.labels[0].email_1}">
+            <p class='b2'>{performer.labels[0].email_1}</p>
+          </a>
+        </p>
+      </div>
+    {/if}
     <div class='space-y-2.5'>
       <h4>For fans of</h4>
       <p class='b2'>
@@ -87,7 +89,9 @@
     </div>
     <div class='space-y-2.5'>
       <h4>streaming & social</h4>
-      <SocialLinks />
+      <SocialLinks
+        socials={performer.social_media_accounts}
+      />
     </div>
   </div>
 </div>

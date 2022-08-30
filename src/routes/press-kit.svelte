@@ -2,7 +2,7 @@
   const url = "https://secret-coast-09187.herokuapp.com/"
   // const url = "http://localhost:3001/"
   const getPerformer = new Promise(async (res, rej) => {
-    const resp = await fetch(url + 'performers/3')
+    const resp = await fetch(url + 'performers/2')
     if (resp.status === 200) {
       const data = await resp.json()
       res(data)
@@ -36,7 +36,7 @@
   export let performer: any
 </script>
 
-<img class='md:hidden' alt='press' src={HeroImg} />
+<img class='md:hidden' alt='press' src={performer.header_image} />
 
 <div class='divide-y divide-black divide-opacity-20 md:mt-20'>
   <div class='x-container'>
