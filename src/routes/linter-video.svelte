@@ -73,6 +73,7 @@ import Fractal from "$lib/LinterVideo/Fractal.svelte";
     backgroundShift1 = false
     showFlashGroup1 = true
   } else if (timestamp > 24.14 && timestamp < 24.16) {
+    backgroundShift2 = false
     backgroundShift3 = true
     showFlashGroup1 = true
     showTitle2 = false

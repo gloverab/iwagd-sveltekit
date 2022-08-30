@@ -1,5 +1,5 @@
 <script lang='ts'>
-  export let item: { quote: string, href: string, outlet: string }
+  export let item: { quote: string, link: string, outlet: string }
 </script>
 
 <div>
@@ -8,16 +8,7 @@
       "{item.quote}"
     </p>
     <p>
-      <a class='underline text-sm' href={item.href} target='_blank'>{item.outlet}</a>
+      <a class='underline text-sm' href={item.link} target='_blank'>{item.outlet_name}</a>
     </p>
   </div>
 </div>
-
-<style>
-  /* .item:nth-of-type(odd) {
-    @apply md:pr-5;
-  }
-  .item:nth-of-type(even) {
-    @apply md:pl-5;
-  } */
-</style>

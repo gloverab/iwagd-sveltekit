@@ -18,9 +18,9 @@
   import TourDatesMobile from "$lib/TourDatesMobile.svelte";
   import moment from "moment";
 
-import ContactDesktop from "$lib/ContactDesktop.svelte";
-import UpcomingDateMobile from "$lib/UpcomingDateMobile.svelte";
-import ContactMobile from "$lib/ContactMobile.svelte";
+  import ContactDesktop from "$lib/ContactDesktop.svelte";
+  import UpcomingDateMobile from "$lib/UpcomingDateMobile.svelte";
+  import ContactMobile from "$lib/ContactMobile.svelte";
 
   let windowH: number
   let windowW: number
