@@ -16,13 +16,8 @@ export default defineConfig({
           dark: '#0B0C1B'
         }
       },
-      blue: {
-        primary: '#3036D0',
-        secondary: '#5357E2'
-      },
-      orange: {
-        primary: '#E13D31'
-      }
+      primary: "#0B0C1B",
+      secondary: "#E13D31"
     },
     extend: {
       backgroundImage: (theme) => ({

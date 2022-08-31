@@ -39,6 +39,6 @@
   }
   
   .social-link:hover svg {
-    @apply fill-orange-primary;
+    @apply fill-secondary;
   }
 </style>
