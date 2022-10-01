@@ -59,11 +59,16 @@
     top-0
     left-0
     w-full
-    mt-10
-    h-120
+    px-10
+    sm:px-0
+    mt-30
+    sm:mt-10
+    h-90
+    sm:h-120
     flex
     flex-col
-    space-y-8
+    space-y-4
+    sm:space-y-8
     overflow-y-scroll
   '>
     <div class='w-full'>

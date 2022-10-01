@@ -25,30 +25,31 @@
 
 </script>
 
-<div class='w-160 space-y-5'>
-  <div class='flex justify-between w-full'>
+<div class='w-full h-full mt-10 sm:mt-0 sm:h-auto sm:w-160 space-y-5'>
+  <div class='flex flex-col w-full justify-start items-center space-y-5 sm:space-y-0 sm:flex-row sm:justify-between'>
     <a class:show={showItem1} href='https://itwasagooddream.bandcamp.com' target='blank' class='listen-link flex items-center space-x-2.5'>
-      <div class='w-7.5'>
+      <div class='w-5 sm:w-7.5'>
         <Bandcamp noHover classes='fill-white' />
       </div>
       <span class='text text-shadow'>Listen on Bandcamp</span>
     </a>
     <a class:show={showItem2} href='https://open.spotify.com/artist/3ib3FBBRjLNrucyXI6Jt6o?si=KKt2nbHqSySSwefF4tsqgg' target='blank' class='listen-link flex items-center space-x-2.5'>
-      <div class='w-7.5'>
+      <div class='w-5 sm:w-7.5'>
         <Spotify noHover classes='fill-white' />
       </div>
       <span class='text text-shadow'>Listen on Spotify</span>
     </a>
     <a class:show={showItem3} href='https://music.apple.com/us/artist/it-was-a-good-dream/1356024166' class='listen-link flex items-center space-x-2.5'>
-      <div class='w-7.5'>
+      <div class='w-5 sm:w-7.5'>
         <AppleMusic noHover classes='fill-white' />
       </div>
       <span class='text text-shadow'>Listen on Apple Music</span>
     </a>
   </div>
-  <div class='h-90 relative'>
+  <div class='h-90 w-full sm:h-90 flex justify-center relative'>
     <div class:rise={showVideo} class='absolute bottom-0 h-0 overflow-hidden duration-300'>
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/8T_aAXtMcJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class='hidden sm:block' width="640" height="360" src="https://www.youtube.com/embed/8T_aAXtMcJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" src="https://www.youtube.com/embed/8T_aAXtMcJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -67,6 +68,6 @@
   }
 
   .text {
-    @apply text-white text-center inline text-base italic;
+    @apply text-sm sm:text-base text-white text-center inline text-base italic;
   }
 </style>

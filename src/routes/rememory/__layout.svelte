@@ -14,9 +14,9 @@ import ListenPage from '$lib/Rememory/ListenPage.svelte';
 </script>
 
 <div class='w-screen h-screen bg-rememory-blue-dark flex items-center justify-center overflow-hidden'>
-  <div class='w-480 h-480 flex-shrink-0 flex relative'>
-    <img alt='background waves 2' class='max-w-none absolute top-0 left-0 spin-waves-2' src={wavesBg2} />
-    <img alt='background waves 1' class='max-w-none absolute top-0 left-0 spin-waves-1' src={wavesBg1} />
+  <div class='w-full h-full sm:w-480 sm:h-480 flex-shrink-0 flex relative'>
+    <img alt='background waves 2' class='hidden sm:block max-w-none absolute top-0 left-0 spin-waves-2' src={wavesBg2} />
+    <img alt='background waves 1' class='hidden sm:block max-w-none absolute top-0 left-0 spin-waves-1' src={wavesBg1} />
     <div class:fade-out={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center delay-400'>
       <img alt='glow light 1' class='max-w-none pulse-fade-1' src={glowLight1} />
     </div>
@@ -24,17 +24,17 @@ import ListenPage from '$lib/Rememory/ListenPage.svelte';
       <img alt='glow light 2' class='max-w-none pulse-fade-2' src={glowLight2} />
     </div>
     <div class:shrink={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform scale-100 duration-350 delay-400'>
-      <img alt='blue inner dots' class='max-w-none spin-blue-dots' src={blueInnerDots} />
+      <img alt='blue inner dots' class='max-w-6/7 sm:max-w-none spin-blue-dots' src={blueInnerDots} />
     </div>
     <div class:shrink={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform scale-100 duration-350 delay-400'>
-      <img alt='orange heartbeat center' class='max-w-none pulse-center' src={orangeCenter} />
+      <img alt='orange heartbeat center' class='max-w-4/5 sm:max-w-none pulse-center' src={orangeCenter} />
     </div>
     <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
-      <img class:fade-out={hideArtwork} alt='yellow sparks' class='max-w-none spin-yellow-sparks duration-150 opacity-100 delay-400' src={yellowSparks} />
+      <img class:fade-out={hideArtwork} alt='yellow sparks' class='max-w-full sm:max-w-none spin-yellow-sparks duration-150 opacity-100 delay-400' src={yellowSparks} />
     </div>
   </div>
   <div class='z-1 absolute top-0 left-0 w-full h-full flex justify-center items-center'>
-    <div class='h-139 relative flex flex-col justify-between items-center'>
+    <div class='w-full sm:w-auto h-full py-20 sm:py-0 sm:h-139 relative flex flex-col justify-between items-center'>
       <div class='z-2 relative'>
         <a class='inline glitch-hover' href='/rememory'>
           <h1 class='text-white inline text-base italic tracking-0.2em text-shadow'>IT WAS A GOOD DREAM</h1>
@@ -44,7 +44,22 @@ import ListenPage from '$lib/Rememory/ListenPage.svelte';
         show={$page.url.pathname.includes('listen')}
       />
       <slot></slot>
-      <div class='z-2 relative flex flex-row space-x-10'>
+      <div class='
+        z-2
+        flex
+        flex-col
+        items-start
+        space-y-1.5
+        fixed
+        left-10
+        bottom-10
+        sm:relative
+        sm:flex-row
+        sm:space-x-10
+        sm:space-y-0
+        sm:left-0
+        sm:bottom-0
+      '>
         <a href='#' disabled>
           <span class='nav-text opacity-50'>Pre Order</span>
         </a>
@@ -74,7 +89,7 @@ import ListenPage from '$lib/Rememory/ListenPage.svelte';
   }
 
   .nav-text {
-    @apply text-white inline text-base italic tracking-0.2em uppercase;
+    @apply text-sm text-white inline sm:text-base italic tracking-0.2em uppercase;
   }
 
   .spin-waves-2 {

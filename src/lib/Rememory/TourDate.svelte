@@ -21,13 +21,13 @@
   class:opacity-100={!past && show}
   class:translate-y-8={!show}
   class:translate-y-0={show}
-  class="flex py-4 px-5 duration-250 w-full transform justify-between text-white {past ? "" : "text-shadow"} italic relative">
+  class="flex py-2 sm:py-4 px-5 duration-250 w-full transform justify-between text-white {past ? "" : "text-shadow"} italic relative">
   <div class='flex space-x-12 items-center'>
-    <div class='flex flex-col'>
-      <p>{moment(item.datetime).format('MMM')}</p>
-      <p>{moment(item.datetime).format('DD')}</p>
+    <div class='flex flex-col items-center'>
+      <p class='text-xs'>{moment(item.datetime).format('MMM')}</p>
+      <p class='text-base'>{moment(item.datetime).format('DD')}</p>
     </div>
-    <div class='flex items-center'>
+    <div class='hidden sm:flex items-center'>
       <p>{moment(item.datetime).format('h:mm A')}</p>
     </div>
     <div class='flex flex-col'>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class='flex items-center'>
+  <div class='hidden sm:flex items-center'>
     {#if past}
       <p class='line-through cursor-default'>Tickets</p>
     {:else}
