@@ -99,7 +99,7 @@ import Fractal from "$lib/LinterVideo/Fractal.svelte";
       <ThreePanel unmount={removeFlashGroup1} />
     {/if}
 
-    <Webcam show={showWebcam} />
+    <Webcam show={showWebcam} {timestamp} />
     <!-- {#if !paused}
       <Fractal />
     {/if} -->
