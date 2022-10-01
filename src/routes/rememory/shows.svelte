@@ -40,7 +40,7 @@
     try {
       const events = await Promise.all([getUpcomingEvents(), getPastEvents()])
       upcomingEvents = events[0]
-      pastEvents = events[1]
+      pastEvents = events[1].reverse()
     } catch (err) {
       console.log(err)
     } finally {
