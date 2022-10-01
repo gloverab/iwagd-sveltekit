@@ -8,9 +8,9 @@
   import orangeCenter from '$images/orange-center.png'
   import yellowSparks from '$images/yellow-sparks.png'
   import { page } from '$app/stores';
-import ListenPage from '$lib/ListenPage.svelte';
+import ListenPage from '$lib/Rememory/ListenPage.svelte';
 
-  $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen')
+  $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
 </script>
 
 <div class='w-screen h-screen bg-rememory-blue-dark flex items-center justify-center overflow-hidden'>
@@ -45,19 +45,19 @@ import ListenPage from '$lib/ListenPage.svelte';
       />
       <slot></slot>
       <div class='z-2 relative flex flex-row space-x-10'>
-        <a href='/' disabled>
+        <a href='#' disabled>
           <span class='nav-text opacity-50'>Pre Order</span>
         </a>
         <a sveltekit:prefetch class='glitch-hover' href='/rememory/listen'>
           <span class='nav-text text-shadow'>Listen</span>
         </a>
-        <a class='glitch-hover' href='/'>
+        <a class='glitch-hover' href='/rememory/shows'>
           <span class='nav-text text-shadow'>Tour</span>
         </a>
         <a class='glitch-hover' href='/rememory/contact'>
           <span class='nav-text text-shadow'>Contact</span>
         </a>
-        <a class='glitch-hover' href='/'>
+        <a class='glitch-hover' target='blank' href='https://itwasagooddream.bandcamp.com/merch'>
           <span class='nav-text text-shadow'>Merch</span>
         </a>
       </div>

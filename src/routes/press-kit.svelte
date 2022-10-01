@@ -13,7 +13,6 @@
 
   export const load = async () => {
     const data = await Promise.all([getPerformer])
-    console.log(data)
     
     return {
       props: {
