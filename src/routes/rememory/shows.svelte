@@ -11,6 +11,8 @@
   let showLine2 = false
   let upcomingEvents = []
   let pastEvents = []
+  let showTopGradient = false
+  let showBottomGradient = false
 
 
   const getUpcomingEvents = async () => {
@@ -33,6 +35,15 @@
     }
   }
 
+  const handleScroll = (e) => {
+    showTopGradient = e.target.scrollTop > 5
+    showBottomGradient = e.target.scrollTop < e.target.scrollHeight - (e.target.clientHeight + 20)
+
+    console.log('top', e.target.scrollTop)
+    console.log('height', e.target.scrollHeight)
+    console.log('c-height', e.target.clientHeight)
+  }
+
   onMount(async () => {
     setTimeout(() => show = true, 400)
     setTimeout(() => showLine1 = true, 300)
@@ -50,26 +61,18 @@
 
 </script>
 
+<div class='z-1 absolute top-0 left-0 w-full h-90 px-10 mt-30 sm:mt-10 sm:px-0 sm:h-120'>
 {#if loading && !show}
   <p>sup. loading.</p>
 {:else}
-  <div out:fade={{ duration: 500 }} class='
-    z-1
-    absolute
-    top-0
-    left-0
-    w-full
-    px-10
-    sm:px-0
-    mt-30
-    sm:mt-10
-    h-90
-    sm:h-120
+  <div on:scroll={handleScroll} out:fade={{ duration: 500 }} class='
     flex
     flex-col
+    max-h-full
     space-y-4
     sm:space-y-8
     overflow-y-scroll
+    scrollbar-hide
   '>
     <div class='w-full'>
       <div class='py-2 relative'>
@@ -115,4 +118,13 @@
       {/if}
     </div>
   </div>
-{/if}
+  {/if}
+  <div class:opacity-100={showTopGradient} class:opacity-0={!showTopGradient} class='h-20 bg-scroll-gradient-t w-full absolute top-0 left-0 duration-200' />
+  <div class:opacity-100={showBottomGradient} class:opacity-0={!showBottomGradient} class='h-20 bg-scroll-gradient-b w-full absolute bottom-0 left-0 duration-200' />
+</div>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

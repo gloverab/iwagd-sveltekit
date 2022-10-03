@@ -1,5 +1,6 @@
 <script lang='ts'>
-
+  import smokeTopMobile from '$images/smoke-top.png'
+  import smokeBottomMobile from '$images/smoke-bottom.png'
   import wavesBg1 from '$images/waves-square-bg-1.png'
   import wavesBg2 from '$images/waves-square-bg-2.png'
   import glowLight1 from '$images/glow-light-1.png'
@@ -9,12 +10,20 @@
   import yellowSparks from '$images/yellow-sparks.png'
   import { page } from '$app/stores';
 import ListenPage from '$lib/Rememory/ListenPage.svelte';
+  import Facebook from '$icons/Facebook.svelte';
+  import Instagram from '$icons/Instagram.svelte';
+  import InstagramLite from '$icons/InstagramLite.svelte';
 
   $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
 </script>
 
 <div class='w-screen h-screen bg-rememory-blue-dark flex items-center justify-center overflow-hidden'>
   <div class='w-full h-full sm:w-480 sm:h-480 flex-shrink-0 flex relative'>
+    <img class='fixed sm:hidden top-0 left-0 max-w-none' src={smokeTopMobile} />
+    <img class='fixed sm:hidden bottom-0 left-0 max-w-none' src={smokeBottomMobile} />
+    <div class='sm:hidden flex justify-center items-center w-full h-full'>
+      <img class='max-w-none h-3/2' src={wavesBg2} />
+    </div>
     <img alt='background waves 2' class='hidden sm:block max-w-none absolute top-0 left-0 spin-waves-2' src={wavesBg2} />
     <img alt='background waves 1' class='hidden sm:block max-w-none absolute top-0 left-0 spin-waves-1' src={wavesBg1} />
     <div class:fade-out={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center delay-400'>
@@ -75,12 +84,24 @@ import ListenPage from '$lib/Rememory/ListenPage.svelte';
         <a class='glitch-hover' target='blank' href='https://itwasagooddream.bandcamp.com/merch'>
           <span class='nav-text text-shadow'>Merch</span>
         </a>
+        <div class='fixed bottom-10 right-10 sm:bottom-0 sm:right-0 sm:relative flex space-x-5'>
+          <a href='http://facebook.com/iwagd' target='blank'>
+            <div class='w-5 h-5'>
+              <Facebook classes='fill-white' />
+            </div>
+          </a>
+          <a href='http://instagram.com/itwasagooddream' target='blank'>
+            <div class='w-5 h-5'>
+              <InstagramLite classes='fill-white' />
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<style>
+<style global>
   .shrink {
     @apply scale-0 delay-0;
   }

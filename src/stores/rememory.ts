@@ -1,1 +1,3 @@
-import { writable } from 'svelte'
+import { writable } from 'svelte/store'
+
+export const showUpcomingModal = writable(true)

@@ -16,12 +16,17 @@ export default defineConfig({
           dark: '#0B0C1B'
         }
       },
-      primary: "#0B0C1B",
+      primary: {
+        dark: '#0e0f23',
+        default: '#0B0C1B'
+      },
       secondary: "#E13D31"
     },
     extend: {
       backgroundImage: (theme) => ({
         ...theme,
+        'scroll-gradient-b': 'linear-gradient(180deg, rgba(11, 12, 27, 0) 0%, #0B0C1B 100%);',
+        'scroll-gradient-t': 'linear-gradient(180deg, #0B0C1B 0%, rgba(11, 12, 27, 0) 100%);',
         'yellow-green': 'linear-gradient(316.96deg, rgba(255, 232, 49, 0.7) 31.42%, rgba(48, 210, 184, 0.7) 95.28%);',
         'paper-texture': 'url(\'/src/assets/images/paper-texture.png\')',
         'g1-l1': 'linear-gradient(90.44deg, #4938AC 0%, #D18DD2 51.48%, #D6E5F6 98.84%);',

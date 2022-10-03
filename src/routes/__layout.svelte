@@ -1,10 +1,53 @@
 <script lang='ts'>
-	import 'virtual:windi.css';
+	import AmazonMusic from '$icons/AmazonMusic.svelte';
+  import AppleMusic from '$icons/AppleMusic.svelte';
+  import Spotify from '$icons/Spotify.svelte';
+  import Tidal from '$icons/Tidal.svelte';
+  import UpcomingModal from '$lib/Rememory/UpcomingModal.svelte';
+  import { showUpcomingModal } from '$src/stores/rememory';
+  import { onMount } from 'svelte';
+  import 'virtual:windi.css';
+
+  const onHideModal = () => {
+    showUpcomingModal.set(false)
+  }
+
+  const links = [
+    {
+      text: 'Pre-save on Spotify',
+      url: 'https://distrokid.com/hyperfollow/itwasagooddream/drawing-your-recurve',
+      icon: Spotify
+    },
+    {
+      text: 'Pre-save on Tidal',
+      url: '#',
+      icon: Tidal
+    },
+    {
+      text: 'Pre-add on Apple Music',
+      url: '#',
+      icon: AppleMusic
+    },
+    {
+      text: 'Pre-save on Amazon Music',
+      url: '#',
+      icon: AmazonMusic
+    },
+  ]
 </script>
 
 <div class='font-arimo'>
   <slot></slot>
 </div>
+
+<UpcomingModal
+  name="Drawing Your Recurve"
+  type='single'
+  releaseText="Streaming November 18"
+  {links}
+  onHide={onHideModal}
+  show={$showUpcomingModal}
+/>
 
 <style windi:preflights:global windi:safelist:global global>
   .text-shadow {
