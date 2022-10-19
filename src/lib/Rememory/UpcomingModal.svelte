@@ -81,7 +81,7 @@
       </div>
 
       <div class='flex justify-center'>
-        <button on:click={handleHide} class='p-1 glitch-hover'>
+        <button data-content="Continue to site" on:click={handleHide} class='p-1 glitch-hover uppercase italic tracking-0.2em'>
           <span class='uppercase italic tracking-0.2em'>Continue to site</span>
         </button>
       </div>
