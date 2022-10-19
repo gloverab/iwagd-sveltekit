@@ -11,7 +11,6 @@
   import { page } from '$app/stores';
   import ListenPage from '$lib/Rememory/ListenPage.svelte';
   import Facebook from '$icons/Facebook.svelte';
-  import Instagram from '$icons/Instagram.svelte';
   import InstagramLite from '$icons/InstagramLite.svelte';
   import AmazonMusic from '$icons/AmazonMusic.svelte';
   import AppleMusic from '$icons/AppleMusic.svelte';
@@ -19,7 +18,6 @@
   import Tidal from '$icons/Tidal.svelte';
   import UpcomingModal from '$lib/Rememory/UpcomingModal.svelte';
   import { showUpcomingModal } from '$src/stores/rememory';
-  import { onMount } from 'svelte';
 
   $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
 
@@ -88,7 +86,7 @@
   <div class='z-1 absolute top-0 left-0 w-full h-full flex justify-center items-center'>
     <div class='w-full sm:w-auto h-full py-20 sm:py-0 sm:h-139 relative flex flex-col justify-between items-center'>
       <div class='z-2 relative'>
-        <a class='inline glitch-hover' href='/rememory'>
+        <a class='inline glitch-hover' href='/'>
           <h1 class='text-white inline text-base italic tracking-0.2em text-shadow'>IT WAS A GOOD DREAM</h1>
         </a>
       </div>
@@ -115,13 +113,13 @@
         <a href='#' disabled>
           <span class='nav-text opacity-50'>Pre Order</span>
         </a>
-        <a sveltekit:prefetch class='glitch-hover' href='/rememory/listen'>
+        <a sveltekit:prefetch class='glitch-hover' href='/listen'>
           <span class='nav-text text-shadow'>Listen</span>
         </a>
-        <a class='glitch-hover' href='/rememory/shows'>
+        <a class='glitch-hover' href='/shows'>
           <span class='nav-text text-shadow'>Tour</span>
         </a>
-        <a class='glitch-hover' href='/rememory/contact'>
+        <a class='glitch-hover' href='/contact'>
           <span class='nav-text text-shadow'>Contact</span>
         </a>
         <a class='glitch-hover' target='blank' href='https://itwasagooddream.bandcamp.com/merch'>
