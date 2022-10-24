@@ -1,15 +1,3 @@
-<script lang='ts' context="module">
-  export const load = async () => {
-    try {
-      await caches.delete("sw-precache-v3-sw-precache-webpack-plugin-https://www.itwasagooddream.com/ - https://www.itwasagooddream.com")
-    } catch (err) {
-      console.log(err)
-    } finally {
-      return {}
-    }
-  }
-</script>
-
 <script lang='ts'>
   import 'virtual:windi.css';
   import smokeTopMobile from '$images/smoke-top.png'
@@ -31,6 +19,7 @@
   import Tidal from '$icons/Tidal.svelte';
   import UpcomingModal from '$lib/Rememory/UpcomingModal.svelte';
   import { showUpcomingModal } from '$src/stores/rememory';
+  import { onMount } from 'svelte';
 
   $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
 
@@ -60,6 +49,16 @@
       icon: AmazonMusic
     },
   ]
+
+  onMount(async () => {
+    try {
+      await caches.delete("sw-precache-v3-sw-precache-webpack-plugin-https://www.itwasagooddream.com/ - https://www.itwasagooddream.com")
+    } catch (err) {
+      console.log(err)
+    } finally {
+      return {}
+    }
+  })
 </script>
 
 <div class='font-arimo'>
