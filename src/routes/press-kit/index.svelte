@@ -1,6 +1,11 @@
 <script lang='ts' context='module'>
   const url = "https://secret-coast-09187.herokuapp.com/"
   // const url = "http://localhost:3001/"
+
+  const timeoutPromise = new Promise((res, rej) => {
+    setTimeout(rej, 1000, 'forceTimeout')
+  })
+
   const getPerformer = new Promise(async (res, rej) => {
     const resp = await fetch(url + 'performers/3')
     if (resp.status === 200) {
@@ -11,8 +16,13 @@
     }
   })
 
+  const getPerformerRace = Promise.race([
+    getPerformer,
+    timeoutPromise
+  ])
+
   export const load = async () => {
-    const data = await Promise.all([getPerformer])
+    const data = await Promise.all([getPerformerRace])
     
     return {
       props: {
