@@ -1,7 +1,12 @@
 <script lang='ts' context="module">
   export const load = async () => {
-    await caches.delete("sw-precache-v3-sw-precache-webpack-plugin-https://www.itwasagooddream.com/ - https://www.itwasagooddream.com")
-    return {}
+    try {
+      await caches.delete("sw-precache-v3-sw-precache-webpack-plugin-https://www.itwasagooddream.com/ - https://www.itwasagooddream.com")
+    } catch (err) {
+      console.log(err)
+    } finally {
+      return {}
+    }
   }
 </script>
 
