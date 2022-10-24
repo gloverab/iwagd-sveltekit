@@ -35,7 +35,7 @@
   export let performer: any
 </script>
 
-<img class='md:hidden' alt='press' src={performer.header_image} />
+<img class='md:hidden' alt='press' src={HeroImg} />
 
 <div class='divide-y divide-black divide-opacity-20 md:mt-20'>
   <div class='x-container'>
