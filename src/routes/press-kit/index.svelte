@@ -32,6 +32,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>It Was A Good Dream | Press Kit</title>
+</svelte:head>
+
 <script lang='ts'>
   import HeroImg from '$images/iwagd-presskit-img.jpeg';
   import Biography from '$lib/Presskit/Biography.svelte';
@@ -78,7 +82,7 @@
     quotes={performer.epk_press}
   />
   <Videos />
-  <TourDates />
+  <!-- <TourDates /> -->
 
   <Footer />
 </div>

@@ -61,6 +61,10 @@
   })
 </script>
 
+<svelte:head>
+  <title>It Was A Good Dream | Official Website</title>
+</svelte:head>
+
 <div class='font-arimo'>
   <UpcomingModal
     name="Drawing Your Recurve"

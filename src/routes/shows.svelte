@@ -61,6 +61,10 @@
 
 </script>
 
+<svelte:head>
+  <title>It Was A Good Dream | Tour Dates</title>
+</svelte:head>
+
 <div class='z-1 absolute top-0 left-0 w-full h-90 px-10 mt-30 sm:mt-10 sm:px-0 sm:h-120'>
 {#if loading && !show}
   <p>sup. loading.</p>

@@ -29,6 +29,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>It Was A Good Dream | Contact</title>
+</svelte:head>
+
 <div out:fade={{ duration: 500 }} class='z-1 space-y-10 absolute top-0 left-0 w-full h-139 flex flex-col justify-center items-center'>
   <div class='flex flex-col space-y-2'>
     <span class:show-50={showLabel1} class='label text-shadow ease-in'>general contact</span>
