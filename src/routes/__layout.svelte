@@ -13,13 +13,13 @@
   import ListenPage from '$lib/Rememory/ListenPage.svelte';
   import Facebook from '$icons/Facebook.svelte';
   import InstagramLite from '$icons/InstagramLite.svelte';
-  import AmazonMusic from '$icons/AmazonMusic.svelte';
   import AppleMusic from '$icons/AppleMusic.svelte';
   import Spotify from '$icons/Spotify.svelte';
   import Tidal from '$icons/Tidal.svelte';
   import UpcomingModal from '$lib/Rememory/UpcomingModal.svelte';
   import { showUpcomingModal } from '$src/stores/rememory';
   import { onMount } from 'svelte';
+  import Bandcamp from '$icons/Bandcamp.svelte';
 
   $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
 
@@ -29,24 +29,24 @@
 
   const links = [
     {
-      text: 'Pre-save on Spotify',
-      url: 'https://distrokid.com/hyperfollow/itwasagooddream/drawing-your-recurve',
+      text: 'Listen on Spotify',
+      url: 'https://open.spotify.com/track/64f3DEr9cYKUaPSi7I9Ysz?si=7e86b793354b44f6',
       icon: Spotify
     },
     {
-      text: 'Pre-save on Tidal',
-      url: '#',
-      icon: Tidal
-    },
-    {
-      text: 'Pre-add on Apple Music',
-      url: '#',
+      text: 'Listen on Apple Music',
+      url: 'https://music.apple.com/us/artist/it-was-a-good-dream/1356024166',
       icon: AppleMusic
     },
     {
-      text: 'Pre-save on Amazon Music',
-      url: '#',
-      icon: AmazonMusic
+      text: 'Listen on Tidal',
+      url: 'https://tidal.com/browse/album/251830247',
+      icon: Tidal
+    },
+    {
+      text: 'Listen on Bandcamp',
+      url: 'https://itwasagooddream.bandcamp.com/track/drawing-your-recurve',
+      icon: Bandcamp
     },
   ]
 
@@ -67,9 +67,9 @@
 
 <div class='font-arimo'>
   <UpcomingModal
-    name="Drawing Your Recurve"
+    name='"Drawing Your Recurve"'
     type='single'
-    releaseText="Streaming November 18"
+    releaseText="Streaming Now"
     {links}
     onHide={onHideModal}
     show={$showUpcomingModal}
