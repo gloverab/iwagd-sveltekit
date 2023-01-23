@@ -29,23 +29,13 @@
 
   const links = [
     {
-      text: 'Listen on Spotify',
-      url: 'https://open.spotify.com/track/64f3DEr9cYKUaPSi7I9Ysz?si=7e86b793354b44f6',
+      text: 'Presave on Spotify',
+      url: 'https://distrokid.com/hyperfollow/itwasagooddream/linter-2',
       icon: Spotify
     },
     {
-      text: 'Listen on Apple Music',
-      url: 'https://music.apple.com/us/artist/it-was-a-good-dream/1356024166',
-      icon: AppleMusic
-    },
-    {
-      text: 'Listen on Tidal',
-      url: 'https://tidal.com/browse/album/251830247',
-      icon: Tidal
-    },
-    {
-      text: 'Listen on Bandcamp',
-      url: 'https://itwasagooddream.bandcamp.com/track/drawing-your-recurve',
+      text: 'Follow IWAGD on Bandcamp',
+      url: 'https://itwasagooddream.bandcamp.com/',
       icon: Bandcamp
     },
   ]
@@ -67,9 +57,9 @@
 
 <div class='font-arimo'>
   <UpcomingModal
-    name='"Drawing Your Recurve"'
+    name='"Linter"'
     type='single'
-    releaseText="Streaming Now"
+    releaseText="Out Friday 01/27"
     {links}
     onHide={onHideModal}
     show={$showUpcomingModal}

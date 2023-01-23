@@ -48,7 +48,7 @@
         transform
       '>
       <div class='flex flex-col items-center uppercase italic tracking-0.2em font-base mb-7.5'>
-        <p>New {type}</p>
+        <p>Presave the New {type}</p>
         <p>{name}</p>
         <p>{releaseText}</p>
       </div>
