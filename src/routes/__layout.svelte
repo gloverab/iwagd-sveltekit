@@ -29,13 +29,23 @@
 
   const links = [
     {
-      text: 'Presave on Spotify',
-      url: 'https://distrokid.com/hyperfollow/itwasagooddream/linter-2',
+      text: 'Listen on Spotify',
+      url: 'https://open.spotify.com/album/1dfgktEfIK2PrHn9HVpoDr?si=A7QSmDncSTuGye3zMf6KCg&utm_medium=share&utm_source=linktree',
       icon: Spotify
     },
     {
-      text: 'Follow IWAGD on Bandcamp',
-      url: 'https://itwasagooddream.bandcamp.com/',
+      text: 'Listen on Apple Music',
+      url: 'https://music.apple.com/us/album/linter/1665698136?at=1000lHKX&ct=linktree_http&i=1665698137&itscg=30200&itsct=lt_m',
+      icon: AppleMusic
+    },
+    {
+      text: 'Listen on Tidal',
+      url: 'https://listen.tidal.com/album/271642135',
+      icon: Tidal
+    },
+    {
+      text: 'Listen on Bandcamp',
+      url: 'https://itwasagooddream.bandcamp.com/track/linter',
       icon: Bandcamp
     },
   ]
@@ -59,7 +69,7 @@
   <UpcomingModal
     name='"Linter"'
     type='single'
-    releaseText="Out Friday 01/27"
+    releaseText="Stream it now"
     {links}
     onHide={onHideModal}
     show={$showUpcomingModal}
