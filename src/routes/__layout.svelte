@@ -30,22 +30,22 @@
   const links = [
     {
       text: 'Listen on Spotify',
-      url: 'https://open.spotify.com/album/1dfgktEfIK2PrHn9HVpoDr?si=A7QSmDncSTuGye3zMf6KCg&utm_medium=share&utm_source=linktree',
+      url: 'https://open.spotify.com/album/5ekMzcyoak0orVXj3SvF7R?si=ZFxYanZ6Q9yzgaRJQUXLVQ',
       icon: Spotify
     },
     {
       text: 'Listen on Apple Music',
-      url: 'https://music.apple.com/us/album/linter/1665698136?at=1000lHKX&ct=linktree_http&i=1665698137&itscg=30200&itsct=lt_m',
+      url: 'https://music.apple.com/us/album/rememory/1677867233',
       icon: AppleMusic
     },
     {
       text: 'Listen on Tidal',
-      url: 'https://listen.tidal.com/album/271642135',
+      url: 'https://tidal.com/browse/album/282520515',
       icon: Tidal
     },
     {
       text: 'Listen on Bandcamp',
-      url: 'https://itwasagooddream.bandcamp.com/track/linter',
+      url: 'https://itwasagooddream.bandcamp.com/album/rememory',
       icon: Bandcamp
     },
   ]
@@ -67,9 +67,7 @@
 
 <div class='font-arimo'>
   <UpcomingModal
-    name='"Linter"'
-    type='single'
-    releaseText="Stream it now"
+    title="New Album 'Rememory' is Out Now."
     {links}
     onHide={onHideModal}
     show={$showUpcomingModal}
@@ -127,8 +125,8 @@
           sm:left-0
           sm:bottom-0
         '>
-          <a href='#' disabled>
-            <span class='nav-text opacity-50'>Pre Order</span>
+          <a data-content='Buy "Rememory" Vinyl' class='glitch-hover nav-text' href='https://itwasagooddream.bandcamp.com/album/rememory'>
+            <span class='nav-text text-shadow'>Buy "Rememory" Vinyl</span>
           </a>
           <a sveltekit:prefetch data-content="Listen" class='glitch-hover nav-text' href='/listen'>
             <span class='nav-text text-shadow'>Listen</span>

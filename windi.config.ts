@@ -8,6 +8,7 @@ export default defineConfig({
       tan: '#F7EBE4',
       grey: {
         light: '#F7F7F7',
+        mid: '#b5b6ba',
         darkest: '#1C1C1C'
       },
       white: '#FFFFFF',
