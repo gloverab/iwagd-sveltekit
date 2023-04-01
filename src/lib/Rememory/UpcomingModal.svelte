@@ -47,6 +47,8 @@
         sm:p-15
         max-w-180
         transform
+        max-h-screen
+        overflow-scroll
       '>
       <div class='flex flex-col items-center uppercase italic tracking-0.2em font-base mb-7.5'>
         <p>{title}</p>
