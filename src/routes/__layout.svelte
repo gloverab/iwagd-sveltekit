@@ -125,7 +125,7 @@
           sm:left-0
           sm:bottom-0
         '>
-          <a data-content='Buy "Rememory" Vinyl' class='glitch-hover nav-text' href='https://itwasagooddream.bandcamp.com/album/rememory'>
+          <a target='blank' data-content='Buy "Rememory" Vinyl' class='glitch-hover nav-text' href='https://itwasagooddream.bandcamp.com/album/rememory'>
             <span class='nav-text text-shadow'>Buy "Rememory" Vinyl</span>
           </a>
           <a sveltekit:prefetch data-content="Listen" class='glitch-hover nav-text' href='/listen'>
