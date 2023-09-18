@@ -1,7 +1,7 @@
 
 
 <script lang='ts'>
-  import { browser } from "$app/env";
+  import { browser } from "$app/environment";
   import smoothscroll from 'smoothscroll-polyfill';
   import EuTour from "$lib/EuTour.svelte";
   import LiquidCircle from "$lib/LiquidCircle.svelte";
