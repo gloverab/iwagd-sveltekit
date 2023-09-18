@@ -14,7 +14,8 @@ export default defineConfig({
       white: '#FFFFFF',
       rememory: {
         blue: {
-          dark: '#0B0C1B'
+          dark: '#0B0C1B',
+          glow: '#3B45AD'
         }
       },
       primary: {
