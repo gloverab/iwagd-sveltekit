@@ -77,7 +77,7 @@
 <svelte:window on:mousemove={handleMouseMove} />
 <div class='bg-rememory-blue-dark min-h-screen font-arimo grid grid-cols-12 md:px-18 lg:px-36 items-center'>
   <div class='col-span-12'>
-    <div style="transform: translate3d({mousePositionX - 120}px, {mousePositionY - 120}px, 0px)" class='fixed w-60 h-60 top-0 left-0 bg-rememory-blue-glow orb rouned-full duration-3000 ease-out' />
+    <div style="transform: translate3d({mousePositionX - 120}px, {mousePositionY - 120}px, 0px)" class='fixed w-60 h-60 top-0 left-0 bg-rememory-blue-glow orb rouned-full duration-3500 ease-out' />
     <div class='relative grid gap-20 grid-cols-12 flex items-center'>
       <div bind:this={linkParentEl} class='relative col-span-2'>
         <div style="top: {styleStringVal}px" class='absolute -left-5 rounded-full bg-white w-1 h-1 duration-300' />
