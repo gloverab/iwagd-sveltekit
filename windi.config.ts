@@ -22,6 +22,7 @@ export default defineConfig({
         dark: '#0e0f23',
         default: '#0B0C1B'
       },
+      transparent: 'rgba(0,0,0,0)',
       secondary: "#E13D31"
     },
     extend: {
@@ -42,6 +43,7 @@ export default defineConfig({
     },
     fontFamily: {
       'arimo': ['Arimo', 'sans-serif'],
+      'helvetica': ['Helvetica', 'sans-serif'],
       'courier': ['Courier'],
       'display': ['Enigma'],
       'tight': ['"Agrandir Tight"'],
