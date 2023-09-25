@@ -1,7 +1,6 @@
 <script lang='ts'>
   import { linear } from "svelte/easing";
-import { draw } from "svelte/transition";
-  import { onMount } from "svelte";
+  import { draw } from "svelte/transition";
 
   export let visible: boolean
   export let classes = ''
