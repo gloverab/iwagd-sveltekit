@@ -77,7 +77,7 @@
               <h2 class='text-white uppercase italic text-xs font-light tracking-0.2em text-center mb-4'>It was a good dream + colectivo alison present</h2>
               <h1 class='text-white font-medium uppercase text-center text-4xl tracking-6.4px mb-10'>Drawing Your Recurve</h1>
               <VideoEmbed
-                videoUrl="https://www.youtube.com/embed/nHmEDGQgexU"
+                videoUrl="https://www.youtube.com/embed/gDvZBD4SO3A?si=2LO8cGFYj9BKzooE"
               />
             </div>
   
@@ -98,7 +98,7 @@
         <h2 class='text-white uppercase italic text-xs font-light tracking-0.2em text-center mb-4'>It was a good dream + colectivo alison present</h2>
         <h1 class='text-white font-medium uppercase text-center text-4xl tracking-6.4px mb-6'>Drawing Your Recurve</h1>
         <VideoEmbed
-          videoUrl="https://www.youtube.com/embed/nHmEDGQgexU"
+          videoUrl="https://www.youtube.com/embed/gDvZBD4SO3A?si=2LO8cGFYj9BKzooE"
         />
       </div>
       <div class='mb-10 relative'>

@@ -1,5 +1,6 @@
 <script lang='ts'>
   import viewport from '$src/actions/userViewportAction';
+  import { fade } from 'svelte/transition';
 
   export let videoUrl: string
 
@@ -22,7 +23,9 @@
   }
 
   const handleOverlayClick = () => {
-    showButton = false
+    setTimeout(() => {
+      showButton = false
+    }, 500)
     const symbol = youtubeVideo.src.indexOf("?") > -1 ? "&" : "?";
     youtubeVideo.src += symbol + "autoplay=1"
     handleVideoPlayClick()
@@ -37,7 +40,7 @@
     class='w-full h-131.75 relative border-1 border-black'>
     <iframe bind:this={youtubeVideo} style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;" allowfullscreen></iframe>
     {#if showButton}
-      <button class='block absolute top-0 left-0 w-full h-full' on:click={handleOverlayClick} />
+      <button out:fade={{ duration: 1000 }} class='block absolute top-0 left-0 w-full h-full bg-black opacity-10' on:click={handleOverlayClick} />
     {/if}
   </div>
 </div>
