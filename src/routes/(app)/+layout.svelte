@@ -26,7 +26,8 @@
 
   let showDrawing = false
 
-  $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
+  $: console.log($page)
+  $: hideArtwork = $page.route.id === "/(app)/listen" || $page.route.id === "/(app)/contact" || $page.route.id === "/(app)/shows"
 
   const onHideModal = () => {
     showUpcomingModal.set(false)
@@ -58,7 +59,7 @@
   onMount(async () => {
     setTimeout(() => {
       showDrawing = true
-    })
+    }, 100)
     try {
       await caches.delete("sw-precache-v3-sw-precache-webpack-plugin-https://www.itwasagooddream.com/ - https://www.itwasagooddream.com")
     } catch (err) {
@@ -100,10 +101,10 @@
       <div class:fade-out={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center delay-400'>
         <img alt='glow light 2' class='max-w-none pulse-fade-2' src={glowLight2} />
       </div>
-      <div class:shrink={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform scale-100 duration-350 delay-400'>
+      <div class:shrink={hideArtwork} class:unshrink={!hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform duration-350 '>
         <img alt='blue inner dots' class='max-w-6/7 sm:max-w-none spin-blue-dots' src={blueInnerDots} />
       </div>
-      <div class:shrink={hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform scale-100 duration-350 delay-400'>
+      <div class:shrink={hideArtwork} class:unshrink={!hideArtwork} class='absolute top-0 left-0 w-full h-full flex items-center justify-center transform duration-350'>
         <img alt='orange heartbeat center' class='max-w-4/5 sm:max-w-none pulse-center' src={orangeCenter} />
       </div>
       <div class='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
@@ -176,3 +177,16 @@
     </div>
   </div>
 </div>
+
+<style>
+  .unshrink {
+    @apply scale-100 delay-400;
+  }
+  
+  .shrink {
+    @apply scale-0 delay-0;
+  }
+  .fade-out {
+    @apply opacity-0 duration-450 delay-0;
+  }
+</style>
