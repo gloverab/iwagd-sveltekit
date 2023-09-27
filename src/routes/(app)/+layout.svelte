@@ -167,8 +167,8 @@
           </div>
         </div>
         {#if showDrawing}
-          <div transition:blur={{ duration: 2500 }} class='w-full fixed top-32 sm:top-auto sm:bottom-12 flex justify-center'>
-            <a data-content='Watch the award-winning short film "Drawing Your Recurve" →' class='glitch-hover nav-text bg-primary-default px-4 py-1 max-w-[calc(100vw_-_8rem)] text-center' target='blank' href='/videos/drawing-your-recurve/watch'>
+          <div transition:blur={{ duration: 2500 }} class='w-full fixed z-10 top-0 sm:top-auto sm:bottom-12 flex justify-center'>
+            <a data-content='Watch the award-winning short film "Drawing Your Recurve" →' class='glitch-hover nav-text bg-primary-default px-4 py-1 w-screen sm:w-auto text-center' target='blank' href='/videos/drawing-your-recurve/watch'>
               <span class='nav-text text-shadow'>Watch the award-winning short film "Drawing Your Recurve" →</span>
             </a>
           </div>
