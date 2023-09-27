@@ -22,6 +22,7 @@
     textTop="winner"
     textLine1='Brussels World'
     textLine2='Film Festival'
+    award='Best Music Video'
     visible={!watchPage}
     year="2023"
   />
@@ -29,6 +30,7 @@
     textTop="winner"
     textLine1='Chicago'
     textLine2='Filmmaker Awards'
+    award='Best Music Video'
     visible={!watchPage}
     year="2023"
   />
@@ -37,6 +39,7 @@
     textLine1='Rotterdam'
     textLine2='Independent Film'
     textLine3='Festival'
+    award='Best Music Video'
     visible={!watchPage}
     year="2023"
   />

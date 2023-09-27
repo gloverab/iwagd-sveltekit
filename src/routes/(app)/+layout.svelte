@@ -16,10 +16,15 @@
   import AppleMusic from '$icons/AppleMusic.svelte';
   import Spotify from '$icons/Spotify.svelte';
   import Tidal from '$icons/Tidal.svelte';
-  import UpcomingModal from '$lib/Rememory/UpcomingModal.svelte';
+  import UpcomingModal from '$lib/Rememory/UpcomingModalContent.svelte';
   import { showUpcomingModal } from '$src/stores/rememory';
   import { onMount } from 'svelte';
   import Bandcamp from '$icons/Bandcamp.svelte';
+  import Modal from '$lib/Modal.svelte';
+  import UpcomingModalContent from '$lib/Rememory/UpcomingModalContent.svelte';
+  import { blur, fade } from 'svelte/transition';
+
+  let showDrawing = false
 
   $: hideArtwork = $page.url.pathname.includes('contact') || $page.url.pathname.includes('listen') || $page.url.pathname.includes('shows')
 
@@ -51,6 +56,9 @@
   ]
 
   onMount(async () => {
+    setTimeout(() => {
+      showDrawing = true
+    })
     try {
       await caches.delete("sw-precache-v3-sw-precache-webpack-plugin-https://www.itwasagooddream.com/ - https://www.itwasagooddream.com")
     } catch (err) {
@@ -66,12 +74,16 @@
 </svelte:head>
 
 <div class='font-arimo'>
-  <UpcomingModal
-    title="New Album 'Rememory' is Out Now."
-    {links}
-    onHide={onHideModal}
+  <Modal
     show={$showUpcomingModal}
-  />
+    onHide={onHideModal}
+  >
+    <UpcomingModalContent
+      title="New Album 'Rememory' is Out Now."
+      {links}
+      onHide={onHideModal}
+    />
+  </Modal>
 
   <div class='w-screen h-screen bg-rememory-blue-dark flex items-center justify-center overflow-hidden'>
     <div class='w-full h-full sm:w-480 sm:h-480 flex-shrink-0 flex relative'>
@@ -125,9 +137,9 @@
           sm:left-0
           sm:bottom-0
         '>
-          <a target='blank' data-content='Buy "Rememory" Vinyl' class='glitch-hover nav-text' href='https://itwasagooddream.bandcamp.com/album/rememory'>
-            <span class='nav-text text-shadow'>Buy "Rememory" Vinyl</span>
-          </a>
+          <button on:click={() => showUpcomingModal.set(true)} target='blank' data-content='Buy "Rememory" LP' class='glitch-hover nav-text' href='https://itwasagooddream.bandcamp.com/album/rememory'>
+            <span class='nav-text text-shadow'>Buy "Rememory" LP</span>
+          </button>
           <a sveltekit:prefetch data-content="Listen" class='glitch-hover nav-text' href='/listen'>
             <span class='nav-text text-shadow'>Listen</span>
           </a>
@@ -153,6 +165,13 @@
             </a>
           </div>
         </div>
+        {#if showDrawing}
+          <div transition:blur={{ duration: 2500 }} class='w-full fixed top-32 sm:top-auto sm:bottom-12 flex justify-center'>
+            <a data-content='Watch the award-winning short film "Drawing Your Recurve" →' class='glitch-hover nav-text bg-primary-default px-4 py-1 max-w-[calc(100vw_-_8rem)] text-center' target='blank' href='/videos/drawing-your-recurve/watch'>
+              <span class='nav-text text-shadow'>Watch the award-winning short film "Drawing Your Recurve" →</span>
+            </a>
+          </div>
+        {/if}
       </div>
     </div>
   </div>

@@ -5,6 +5,7 @@
   export let textLine1: string
   export let textLine2: string
   export let textLine3 = ''
+  export let award = ''
   export let visible: boolean
   export let year: string
 </script>

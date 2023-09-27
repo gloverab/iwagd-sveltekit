@@ -124,6 +124,10 @@
     animation: glitch-hover-afters 0.25s linear forwards;
   }
 
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
