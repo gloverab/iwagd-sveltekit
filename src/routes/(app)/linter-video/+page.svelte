@@ -1,7 +1,6 @@
 <script lang='ts'>
   import { onMount } from "svelte";
   import { fade } from 'svelte/transition';
-  import linter from "$src/assets/audio/linter-unmastered.wav"
   import ThreePanel from "$lib/LinterVideo/ThreePanel.svelte";
   import Time from "$lib/LinterVideo/Time.svelte";
   import Webcam from "$lib/LinterVideo/Webcam.svelte";
@@ -126,7 +125,7 @@ import Fractal from "$lib/LinterVideo/Fractal.svelte";
     {/if}
   </div>
 </div>
-<audio class='hidden' controls bind:currentTime={timestamp} bind:duration={duration} src={linter} bind:paused={paused} />
+<!-- <audio class='hidden' controls bind:currentTime={timestamp} bind:duration={duration} src={linter} bind:paused={paused} /> -->
 
 <style>
   .backgroundShift1 {
